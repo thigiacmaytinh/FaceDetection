@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="TGMT">
+      <UniqueIdentifier>{cfdb8f60-489e-471d-8e6a-1757fae07e0a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Winmain.cpp" />
+    <ClCompile Include="FaceComp.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
+    <ClCompile Include="TGMTConfig.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
+    <ClCompile Include="TGMTdebugger.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
+    <ClCompile Include="TGMTface.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
+    <ClCompile Include="TGMTfile.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
+    <ClCompile Include="TGMTimage.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
+    <ClCompile Include="TGMTshape.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
+    <ClCompile Include="TGMTutil.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FaceComp.h" />
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TGMTConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TGMTdebugger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TGMTface.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TGMTfile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TGMTimage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TGMTshape.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TGMTutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
