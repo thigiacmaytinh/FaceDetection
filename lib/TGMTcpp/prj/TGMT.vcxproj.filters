@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\src\stdafx.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTann.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTBean.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTbgs.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTblob.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTblur.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTbrightness.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTcamera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTcolor.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTConfig.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTcontour.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTdebugger.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTdraw.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTeffect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTface.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTfile.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMThistogram.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTimage.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTknn.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTline.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTmorphology.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTobjDetect.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTregistry.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTshape.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTsvm.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTtransform.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTutil.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTvideo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTcrypto.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMThardware.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\TGMTtracking.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="TGMTtesseract.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTann.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTBean.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTbgs.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTblob.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTblur.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTbrightness.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTcamera.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTcolor.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTConfig.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTcontour.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTdebugger.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTdraw.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTeffect.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTface.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTfile.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMThistogram.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTimage.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTknn.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTline.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTmorphology.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTobjDetect.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTregistry.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTshape.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTsvm.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTtransform.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTutil.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTvideo.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\TMGT.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTcrypto.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMThardware.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\TGMTtracking.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="TGMTtesseract.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{22bbbfbb-335a-4b53-a7b9-ee92fb939b16}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{7e340997-b246-4dd6-95ac-7dddb5f87bed}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
