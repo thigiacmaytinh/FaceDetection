@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\ar_hmdb.cpp" />
+    <ClCompile Include="src\ar_sports.cpp" />
+    <ClCompile Include="src\dataset.cpp" />
+    <ClCompile Include="src\fr_adience.cpp" />
+    <ClCompile Include="src\fr_lfw.cpp" />
+    <ClCompile Include="src\gr_chalearn.cpp" />
+    <ClCompile Include="src\gr_skig.cpp" />
+    <ClCompile Include="src\hpe_humaneva.cpp" />
+    <ClCompile Include="src\hpe_parse.cpp" />
+    <ClCompile Include="src\ir_affine.cpp" />
+    <ClCompile Include="src\ir_robot.cpp" />
+    <ClCompile Include="src\is_bsds.cpp" />
+    <ClCompile Include="src\is_weizmann.cpp" />
+    <ClCompile Include="src\msm_epfl.cpp" />
+    <ClCompile Include="src\msm_middlebury.cpp" />
+    <ClCompile Include="src\or_imagenet.cpp" />
+    <ClCompile Include="src\or_mnist.cpp" />
+    <ClCompile Include="src\or_pascal.cpp" />
+    <ClCompile Include="src\or_sun.cpp" />
+    <ClCompile Include="src\pd_caltech.cpp" />
+    <ClCompile Include="src\pd_inria.cpp" />
+    <ClCompile Include="src\slam_kitti.cpp" />
+    <ClCompile Include="src\slam_tumindoor.cpp" />
+    <ClCompile Include="src\tinyxml2\tinyxml2.cpp" />
+    <ClCompile Include="src\track_vot.cpp" />
+    <ClCompile Include="src\tr_chars.cpp" />
+    <ClCompile Include="src\tr_icdar.cpp" />
+    <ClCompile Include="src\tr_svt.cpp" />
+    <ClCompile Include="src\util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cvconfig.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\datasets\ar_hmdb.hpp" />
+    <ClInclude Include="include\opencv2\datasets\ar_sports.hpp" />
+    <ClInclude Include="include\opencv2\datasets\dataset.hpp" />
+    <ClInclude Include="include\opencv2\datasets\fr_adience.hpp" />
+    <ClInclude Include="include\opencv2\datasets\fr_lfw.hpp" />
+    <ClInclude Include="include\opencv2\datasets\gr_chalearn.hpp" />
+    <ClInclude Include="include\opencv2\datasets\gr_skig.hpp" />
+    <ClInclude Include="include\opencv2\datasets\hpe_humaneva.hpp" />
+    <ClInclude Include="include\opencv2\datasets\hpe_parse.hpp" />
+    <ClInclude Include="include\opencv2\datasets\ir_affine.hpp" />
+    <ClInclude Include="include\opencv2\datasets\ir_robot.hpp" />
+    <ClInclude Include="include\opencv2\datasets\is_bsds.hpp" />
+    <ClInclude Include="include\opencv2\datasets\is_weizmann.hpp" />
+    <ClInclude Include="include\opencv2\datasets\msm_epfl.hpp" />
+    <ClInclude Include="include\opencv2\datasets\msm_middlebury.hpp" />
+    <ClInclude Include="include\opencv2\datasets\or_imagenet.hpp" />
+    <ClInclude Include="include\opencv2\datasets\or_mnist.hpp" />
+    <ClInclude Include="include\opencv2\datasets\or_pascal.hpp" />
+    <ClInclude Include="include\opencv2\datasets\or_sun.hpp" />
+    <ClInclude Include="include\opencv2\datasets\pd_caltech.hpp" />
+    <ClInclude Include="include\opencv2\datasets\pd_inria.hpp" />
+    <ClInclude Include="include\opencv2\datasets\slam_kitti.hpp" />
+    <ClInclude Include="include\opencv2\datasets\slam_tumindoor.hpp" />
+    <ClInclude Include="include\opencv2\datasets\track_vot.hpp" />
+    <ClInclude Include="include\opencv2\datasets\tr_chars.hpp" />
+    <ClInclude Include="include\opencv2\datasets\tr_icdar.hpp" />
+    <ClInclude Include="include\opencv2\datasets\tr_svt.hpp" />
+    <ClInclude Include="include\opencv2\datasets\util.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{8750B385-9140-448F-99BB-233E082AF528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2\datasets">
+      <UniqueIdentifier>{4D057D11-023A-49FD-8ED5-B5EFB077DEE0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\tinyxml2">
+      <UniqueIdentifier>{B402B8D5-7DA7-41CC-AFE4-E3A77A18F6B7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{CCD6B23C-58E5-49C5-805C-75D556D2D3DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{138C8725-9984-4E38-93C3-432FA044E89A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

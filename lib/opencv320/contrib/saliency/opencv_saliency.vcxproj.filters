@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="opencv_saliency_pch.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\BING\CmFile.cpp" />
+    <ClCompile Include="src\BING\CmShow.cpp" />
+    <ClCompile Include="src\BING\FilterTIG.cpp" />
+    <ClCompile Include="src\BING\objectnessBING.cpp" />
+    <ClCompile Include="src\BING\ValStructVec.cpp" />
+    <ClCompile Include="src\motionSaliency.cpp" />
+    <ClCompile Include="src\motionSaliencyBinWangApr2014.cpp" />
+    <ClCompile Include="src\objectness.cpp" />
+    <ClCompile Include="src\saliency.cpp" />
+    <ClCompile Include="src\staticSaliency.cpp" />
+    <ClCompile Include="src\staticSaliencySpectralResidual.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cvconfig.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\saliency.hpp" />
+    <ClInclude Include="include\opencv2\saliency\saliencyBaseClasses.hpp" />
+    <ClInclude Include="include\opencv2\saliency\saliencySpecializedClasses.hpp" />
+    <ClInclude Include="src\BING\CmFile.hpp" />
+    <ClInclude Include="src\BING\CmShow.hpp" />
+    <ClInclude Include="src\BING\CmTimer.hpp" />
+    <ClInclude Include="src\BING\kyheader.hpp" />
+    <ClInclude Include="src\precomp.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Src\BING">
+      <UniqueIdentifier>{A8560E1E-4644-4404-82B4-CD1C2ADA482C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{8750B385-9140-448F-99BB-233E082AF528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2\saliency">
+      <UniqueIdentifier>{D2D0B9DB-99ED-4C26-97DD-CD94E3A9BB59}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{CCD6B23C-58E5-49C5-805C-75D556D2D3DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{138C8725-9984-4E38-93C3-432FA044E89A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\compiler\importer.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\compiler\parser.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\descriptor.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\descriptor.pb.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\descriptor_database.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\dynamic_message.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\extension_set.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\extension_set_heavy.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\generated_message_reflection.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\generated_message_util.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\io\coded_stream.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\io\gzip_stream.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\io\printer.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\io\tokenizer.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\io\zero_copy_stream.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\io\zero_copy_stream_impl.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\io\zero_copy_stream_impl_lite.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\message.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\message_lite.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\reflection_ops.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\repeated_field.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\service.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\stubs\atomicops_internals_x86_msvc.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\stubs\common.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\stubs\once.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\stubs\stringprintf.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\stubs\structurally_valid.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\stubs\strutil.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\stubs\substitute.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\text_format.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\unknown_field_set.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\wire_format.cc" />
+    <ClCompile Include="..\..\..\..\contrib\dnn\3rdparty\protobuf\src\google\protobuf\wire_format_lite.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B2CE98C1-6B64-4A98-9E47-EA1E32645B36}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
