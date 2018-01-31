@@ -1,2 +1,3 @@
 
 *.db
+/lib/opencv320/apps

@@ -121,7 +121,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)FaceComp;$(SolutionDir)lib\TGMTcpp\src;$(SolutionDir)lib\TGMTbridge\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>FaceCompX64d.lib;opencv_face320d.lib;opencv_ml320d.lib;opencv_objdetect320d.lib;opencv_videoio320d.lib;jsoncpp_x64_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FaceComp-x64d.lib;opencv_face320d.lib;opencv_ml320d.lib;opencv_objdetect320d.lib;opencv_videoio320d.lib;jsoncpp_x64_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDIr)FaceComp\lib;$(SolutionDir)lib\jsoncpp\project\vs2015\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -145,7 +145,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)FaceComp;$(SolutionDir)lib\TGMTcpp\src;$(SolutionDir)lib\TGMTbridge\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>FaceCompX64.lib;opencv_face320.lib;opencv_ml320.lib;opencv_objdetect320.lib;opencv_videoio320.lib;jsoncpp_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FaceComp-x64.lib;opencv_face320.lib;opencv_ml320.lib;opencv_objdetect320.lib;opencv_videoio320.lib;jsoncpp_x64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDIr)FaceComp\lib;$(SolutionDir)lib\jsoncpp\project\vs2015\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -160,16 +160,11 @@
     <ClInclude Include="..\lib\TGMTbridge\src\TGMTbridge.h" />
     <ClInclude Include="..\lib\TGMTbridge\src\TGMTbridgeUtil.h" />
     <ClInclude Include="FaceCompBridge.h" />
-    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\TGMTbridge\src\TGMTbridge.cpp" />
     <ClCompile Include="..\lib\TGMTbridge\src\TGMTbridgeUtil.cpp" />
-    <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="FaceCompBridge.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="app.ico" />

@@ -43,6 +43,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IlmImf", "lib\opencv320\3rd
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "lib\opencv320\3rdparty\zlib\zlib.vcxproj", "{B1C6E4EE-CFAF-452B-A6DC-70CC90415519}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jsoncpp", "lib\jsoncpp\project\vs2015\jsoncpp.vcxproj", "{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -211,6 +213,14 @@ Global
 		{B1C6E4EE-CFAF-452B-A6DC-70CC90415519}.Release|Win32.Build.0 = Release|Win32
 		{B1C6E4EE-CFAF-452B-A6DC-70CC90415519}.Release|x64.ActiveCfg = Release|x64
 		{B1C6E4EE-CFAF-452B-A6DC-70CC90415519}.Release|x64.Build.0 = Release|x64
+		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Debug|Win32.Build.0 = Debug|Win32
+		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Debug|x64.ActiveCfg = Debug|x64
+		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Debug|x64.Build.0 = Debug|x64
+		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Release|Win32.ActiveCfg = Release|Win32
+		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Release|Win32.Build.0 = Release|Win32
+		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Release|x64.ActiveCfg = Release|x64
+		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
