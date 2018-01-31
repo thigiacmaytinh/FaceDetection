@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\deblurring.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\fast_marching.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\frame_source.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global_motion.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\inpainting.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\log.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\motion_stabilizing.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\optical_flow.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\outlier_rejection.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stabilizer.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\wobble_suppression.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="opencv_videostab_pch.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\opencv2\videostab.hpp">
+      <Filter>Include\opencv2</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\deblurring.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\fast_marching.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\fast_marching_inl.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\frame_source.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\global_motion.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\inpainting.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\log.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\motion_core.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\motion_stabilizing.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\optical_flow.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\outlier_rejection.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\ring_buffer.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\stabilizer.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videostab\wobble_suppression.hpp">
+      <Filter>Include\opencv2\videostab</Filter>
+    </ClInclude>
+    <ClInclude Include="src\clp.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\precomp.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cvconfig.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{8750B385-9140-448F-99BB-233E082AF528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2\videostab">
+      <UniqueIdentifier>{E5B1E8C4-5AF0-43A4-83FF-CB700F863486}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{CCD6B23C-58E5-49C5-805C-75D556D2D3DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{138C8725-9984-4E38-93C3-432FA044E89A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

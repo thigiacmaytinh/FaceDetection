@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{975CA7AA-90E8-4EC9-954F-56E78508C953}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>opencv_python2</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)\lib\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">opencv_python2.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cv2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.pyd</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\lib\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">opencv_python2.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cv2</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.pyd</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\3rdparty\ippicv\ippicv_win\include;$(SolutionDir);$(SolutionDir)\modules\python\python2\include;$(SolutionDir)\modules\python\python2\src;$(SolutionDir)\modules\python2;$(SolutionDir)\modules\core\include;$(SolutionDir)\modules\flann\include;$(SolutionDir)\modules\imgproc\include;$(SolutionDir)\modules\ml\include;$(SolutionDir)\modules\photo\include;$(SolutionDir)\contrib\modules\reg\include;$(SolutionDir)\contrib\modules\surface_matching\include;$(SolutionDir)\modules\video\include;$(SolutionDir)\contrib\modules\dnn\include;$(SolutionDir)\modules\imgcodecs\include;$(SolutionDir)\modules\shape\include;$(SolutionDir)\modules\videoio\include;$(SolutionDir)\modules\highgui\include;$(SolutionDir)\modules\objdetect\include;$(SolutionDir)\modules\superres\include;$(SolutionDir)\contrib\modules\xobjdetect\include;$(SolutionDir)\contrib\modules\xphoto\include;$(SolutionDir)\contrib\modules\bgsegm\include;$(SolutionDir)\contrib\modules\bioinspired\include;$(SolutionDir)\contrib\modules\dpm\include;$(SolutionDir)\contrib\modules\face\include;$(SolutionDir)\modules\features2d\include;$(SolutionDir)\contrib\modules\line_descriptor\include;$(SolutionDir)\contrib\modules\saliency\include;$(SolutionDir)\contrib\modules\text\include;$(SolutionDir)\modules\calib3d\include;$(SolutionDir)\contrib\modules\ccalib\include;$(SolutionDir)\contrib\modules\datasets\include;$(SolutionDir)\contrib\modules\rgbd\include;$(SolutionDir)\contrib\modules\tracking\include;$(SolutionDir)\modules\videostab\include;$(SolutionDir)\contrib\modules\xfeatures2d\include;$(SolutionDir)\contrib\modules\ximgproc\include;$(SolutionDir)\contrib\modules\aruco\include;$(SolutionDir)\contrib\modules\optflow\include;$(SolutionDir)\modules\stitching\include;C:\Python27\include;C:\Python27\lib\site-packages\numpy-1.12.0-py2.7-win32.egg\numpy\core\include;$(SolutionDir)\modules\python\src2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4324;4275;4589;4100;4127;4505</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>4</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CVAPI_EXPORTS;CMAKE_INTDIR="Debug";opencv_python2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;_DEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CVAPI_EXPORTS;CMAKE_INTDIR=\"Debug\";opencv_python2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\3rdparty\ippicv\ippicv_win\include;$(SolutionDir);$(SolutionDir)\modules\python\python2\include;$(SolutionDir)\modules\python\python2\src;$(SolutionDir)\modules\python2;$(SolutionDir)\modules\core\include;$(SolutionDir)\modules\flann\include;$(SolutionDir)\modules\imgproc\include;$(SolutionDir)\modules\ml\include;$(SolutionDir)\modules\photo\include;$(SolutionDir)\contrib\modules\reg\include;$(SolutionDir)\contrib\modules\surface_matching\include;$(SolutionDir)\modules\video\include;$(SolutionDir)\contrib\modules\dnn\include;$(SolutionDir)\modules\imgcodecs\include;$(SolutionDir)\modules\shape\include;$(SolutionDir)\modules\videoio\include;$(SolutionDir)\modules\highgui\include;$(SolutionDir)\modules\objdetect\include;$(SolutionDir)\modules\superres\include;$(SolutionDir)\contrib\modules\xobjdetect\include;$(SolutionDir)\contrib\modules\xphoto\include;$(SolutionDir)\contrib\modules\bgsegm\include;$(SolutionDir)\contrib\modules\bioinspired\include;$(SolutionDir)\contrib\modules\dpm\include;$(SolutionDir)\contrib\modules\face\include;$(SolutionDir)\modules\features2d\include;$(SolutionDir)\contrib\modules\line_descriptor\include;$(SolutionDir)\contrib\modules\saliency\include;$(SolutionDir)\contrib\modules\text\include;$(SolutionDir)\modules\calib3d\include;$(SolutionDir)\contrib\modules\ccalib\include;$(SolutionDir)\contrib\modules\datasets\include;$(SolutionDir)\contrib\modules\rgbd\include;$(SolutionDir)\contrib\modules\tracking\include;$(SolutionDir)\modules\videostab\include;$(SolutionDir)\contrib\modules\xfeatures2d\include;$(SolutionDir)\contrib\modules\ximgproc\include;$(SolutionDir)\contrib\modules\aruco\include;$(SolutionDir)\contrib\modules\optflow\include;$(SolutionDir)\modules\stitching\include;C:\Python27\include;C:\Python27\lib\site-packages\numpy-1.12.0-py2.7-win32.egg\numpy\core\include;$(SolutionDir)\modules\python\src2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\3rdparty\ippicv\ippicv_win\include;$(SolutionDir);$(SolutionDir)\modules\python\python2\include;$(SolutionDir)\modules\python\python2\src;$(SolutionDir)\modules\python2;$(SolutionDir)\modules\core\include;$(SolutionDir)\modules\flann\include;$(SolutionDir)\modules\imgproc\include;$(SolutionDir)\modules\ml\include;$(SolutionDir)\modules\photo\include;$(SolutionDir)\contrib\modules\reg\include;$(SolutionDir)\contrib\modules\surface_matching\include;$(SolutionDir)\modules\video\include;$(SolutionDir)\contrib\modules\dnn\include;$(SolutionDir)\modules\imgcodecs\include;$(SolutionDir)\modules\shape\include;$(SolutionDir)\modules\videoio\include;$(SolutionDir)\modules\highgui\include;$(SolutionDir)\modules\objdetect\include;$(SolutionDir)\modules\superres\include;$(SolutionDir)\contrib\modules\xobjdetect\include;$(SolutionDir)\contrib\modules\xphoto\include;$(SolutionDir)\contrib\modules\bgsegm\include;$(SolutionDir)\contrib\modules\bioinspired\include;$(SolutionDir)\contrib\modules\dpm\include;$(SolutionDir)\contrib\modules\face\include;$(SolutionDir)\modules\features2d\include;$(SolutionDir)\contrib\modules\line_descriptor\include;$(SolutionDir)\contrib\modules\saliency\include;$(SolutionDir)\contrib\modules\text\include;$(SolutionDir)\modules\calib3d\include;$(SolutionDir)\contrib\modules\ccalib\include;$(SolutionDir)\contrib\modules\datasets\include;$(SolutionDir)\contrib\modules\rgbd\include;$(SolutionDir)\contrib\modules\tracking\include;$(SolutionDir)\modules\videostab\include;$(SolutionDir)\contrib\modules\xfeatures2d\include;$(SolutionDir)\contrib\modules\ximgproc\include;$(SolutionDir)\contrib\modules\aruco\include;$(SolutionDir)\contrib\modules\optflow\include;$(SolutionDir)\modules\stitching\include;C:\Python27\include;C:\Python27\lib\site-packages\numpy-1.12.0-py2.7-win32.egg\numpy\core\include;$(SolutionDir)\modules\python\src2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 /debug %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;C:\Python27\libs\python27.lib;opencv_reg320d.lib;opencv_surface_matching320d.lib;opencv_dnn320d.lib;opencv_superres320d.lib;opencv_xobjdetect320d.lib;opencv_xphoto320d.lib;opencv_bgsegm320d.lib;opencv_bioinspired320d.lib;opencv_dpm320d.lib;opencv_line_descriptor320d.lib;opencv_saliency320d.lib;opencv_ccalib320d.lib;opencv_rgbd320d.lib;opencv_tracking320d.lib;opencv_videostab320d.lib;opencv_aruco320d.lib;opencv_optflow320d.lib;opencv_stitching320d.lib;opencv_datasets320d.lib;opencv_face320d.lib;opencv_text320d.lib;opencv_photo320d.lib;opencv_ximgproc320d.lib;opencv_objdetect320d.lib;opencv_xfeatures2d320d.lib;opencv_shape320d.lib;opencv_video320d.lib;opencv_calib3d320d.lib;opencv_features2d320d.lib;opencv_flann320d.lib;opencv_ml320d.lib;opencv_highgui320d.lib;opencv_videoio320d.lib;opencv_imgcodecs320d.lib;opencv_imgproc320d.lib;opencv_core320d.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>../../lib/Debug/opencv_python2.lib</ImportLibrary>
+      <ProgramDataBaseFile>../../lib/Debug/cv2.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions> /bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\3rdparty\ippicv\ippicv_win\include;$(SolutionDir);$(SolutionDir)\modules\python\python2\include;$(SolutionDir)\modules\python\python2\src;$(SolutionDir)\modules\python2;$(SolutionDir)\modules\core\include;$(SolutionDir)\modules\flann\include;$(SolutionDir)\modules\imgproc\include;$(SolutionDir)\modules\ml\include;$(SolutionDir)\modules\photo\include;$(SolutionDir)\contrib\modules\reg\include;$(SolutionDir)\contrib\modules\surface_matching\include;$(SolutionDir)\modules\video\include;$(SolutionDir)\contrib\modules\dnn\include;$(SolutionDir)\modules\imgcodecs\include;$(SolutionDir)\modules\shape\include;$(SolutionDir)\modules\videoio\include;$(SolutionDir)\modules\highgui\include;$(SolutionDir)\modules\objdetect\include;$(SolutionDir)\modules\superres\include;$(SolutionDir)\contrib\modules\xobjdetect\include;$(SolutionDir)\contrib\modules\xphoto\include;$(SolutionDir)\contrib\modules\bgsegm\include;$(SolutionDir)\contrib\modules\bioinspired\include;$(SolutionDir)\contrib\modules\dpm\include;$(SolutionDir)\contrib\modules\face\include;$(SolutionDir)\modules\features2d\include;$(SolutionDir)\contrib\modules\line_descriptor\include;$(SolutionDir)\contrib\modules\saliency\include;$(SolutionDir)\contrib\modules\text\include;$(SolutionDir)\modules\calib3d\include;$(SolutionDir)\contrib\modules\ccalib\include;$(SolutionDir)\contrib\modules\datasets\include;$(SolutionDir)\contrib\modules\rgbd\include;$(SolutionDir)\contrib\modules\tracking\include;$(SolutionDir)\modules\videostab\include;$(SolutionDir)\contrib\modules\xfeatures2d\include;$(SolutionDir)\contrib\modules\ximgproc\include;$(SolutionDir)\contrib\modules\aruco\include;$(SolutionDir)\contrib\modules\optflow\include;$(SolutionDir)\modules\stitching\include;C:\Python27\include;C:\Python27\lib\site-packages\numpy-1.12.0-py2.7-win32.egg\numpy\core\include;$(SolutionDir)\modules\python\src2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4324;4275;4589;4100;4127;4505</DisableSpecificWarnings>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <ProcessorNumber>4</ProcessorNumber>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CVAPI_EXPORTS;CMAKE_INTDIR="Release";opencv_python2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_SCL_SECURE_NO_WARNINGS;NDEBUG;_VARIADIC_MAX=10;__OPENCV_BUILD=1;CVAPI_EXPORTS;CMAKE_INTDIR=\"Release\";opencv_python2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\3rdparty\ippicv\ippicv_win\include;$(SolutionDir);$(SolutionDir)\modules\python\python2\include;$(SolutionDir)\modules\python\python2\src;$(SolutionDir)\modules\python2;$(SolutionDir)\modules\core\include;$(SolutionDir)\modules\flann\include;$(SolutionDir)\modules\imgproc\include;$(SolutionDir)\modules\ml\include;$(SolutionDir)\modules\photo\include;$(SolutionDir)\contrib\modules\reg\include;$(SolutionDir)\contrib\modules\surface_matching\include;$(SolutionDir)\modules\video\include;$(SolutionDir)\contrib\modules\dnn\include;$(SolutionDir)\modules\imgcodecs\include;$(SolutionDir)\modules\shape\include;$(SolutionDir)\modules\videoio\include;$(SolutionDir)\modules\highgui\include;$(SolutionDir)\modules\objdetect\include;$(SolutionDir)\modules\superres\include;$(SolutionDir)\contrib\modules\xobjdetect\include;$(SolutionDir)\contrib\modules\xphoto\include;$(SolutionDir)\contrib\modules\bgsegm\include;$(SolutionDir)\contrib\modules\bioinspired\include;$(SolutionDir)\contrib\modules\dpm\include;$(SolutionDir)\contrib\modules\face\include;$(SolutionDir)\modules\features2d\include;$(SolutionDir)\contrib\modules\line_descriptor\include;$(SolutionDir)\contrib\modules\saliency\include;$(SolutionDir)\contrib\modules\text\include;$(SolutionDir)\modules\calib3d\include;$(SolutionDir)\contrib\modules\ccalib\include;$(SolutionDir)\contrib\modules\datasets\include;$(SolutionDir)\contrib\modules\rgbd\include;$(SolutionDir)\contrib\modules\tracking\include;$(SolutionDir)\modules\videostab\include;$(SolutionDir)\contrib\modules\xfeatures2d\include;$(SolutionDir)\contrib\modules\ximgproc\include;$(SolutionDir)\contrib\modules\aruco\include;$(SolutionDir)\contrib\modules\optflow\include;$(SolutionDir)\modules\stitching\include;C:\Python27\include;C:\Python27\lib\site-packages\numpy-1.12.0-py2.7-win32.egg\numpy\core\include;$(SolutionDir)\modules\python\src2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\3rdparty\ippicv\ippicv_win\include;$(SolutionDir);$(SolutionDir)\modules\python\python2\include;$(SolutionDir)\modules\python\python2\src;$(SolutionDir)\modules\python2;$(SolutionDir)\modules\core\include;$(SolutionDir)\modules\flann\include;$(SolutionDir)\modules\imgproc\include;$(SolutionDir)\modules\ml\include;$(SolutionDir)\modules\photo\include;$(SolutionDir)\contrib\modules\reg\include;$(SolutionDir)\contrib\modules\surface_matching\include;$(SolutionDir)\modules\video\include;$(SolutionDir)\contrib\modules\dnn\include;$(SolutionDir)\modules\imgcodecs\include;$(SolutionDir)\modules\shape\include;$(SolutionDir)\modules\videoio\include;$(SolutionDir)\modules\highgui\include;$(SolutionDir)\modules\objdetect\include;$(SolutionDir)\modules\superres\include;$(SolutionDir)\contrib\modules\xobjdetect\include;$(SolutionDir)\contrib\modules\xphoto\include;$(SolutionDir)\contrib\modules\bgsegm\include;$(SolutionDir)\contrib\modules\bioinspired\include;$(SolutionDir)\contrib\modules\dpm\include;$(SolutionDir)\contrib\modules\face\include;$(SolutionDir)\modules\features2d\include;$(SolutionDir)\contrib\modules\line_descriptor\include;$(SolutionDir)\contrib\modules\saliency\include;$(SolutionDir)\contrib\modules\text\include;$(SolutionDir)\modules\calib3d\include;$(SolutionDir)\contrib\modules\ccalib\include;$(SolutionDir)\contrib\modules\datasets\include;$(SolutionDir)\contrib\modules\rgbd\include;$(SolutionDir)\contrib\modules\tracking\include;$(SolutionDir)\modules\videostab\include;$(SolutionDir)\contrib\modules\xfeatures2d\include;$(SolutionDir)\contrib\modules\ximgproc\include;$(SolutionDir)\contrib\modules\aruco\include;$(SolutionDir)\contrib\modules\optflow\include;$(SolutionDir)\modules\stitching\include;C:\Python27\include;C:\Python27\lib\site-packages\numpy-1.12.0-py2.7-win32.egg\numpy\core\include;$(SolutionDir)\modules\python\src2;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalOptions> /machine:X86 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;C:\Python27\libs\python27.lib;..\..\lib\Release\opencv_dnn320.lib;..\..\lib\Release\opencv_superres320.lib;..\..\lib\Release\opencv_xobjdetect320.lib;..\..\lib\Release\opencv_xphoto320.lib;..\..\lib\Release\opencv_bgsegm320.lib;..\..\lib\Release\opencv_bioinspired320.lib;..\..\lib\Release\opencv_dpm320.lib;..\..\lib\Release\opencv_line_descriptor320.lib;..\..\lib\Release\opencv_saliency320.lib;..\..\lib\Release\opencv_ccalib320.lib;..\..\lib\Release\opencv_rgbd320.lib;..\..\lib\Release\opencv_tracking320.lib;..\..\lib\Release\opencv_videostab320.lib;..\..\lib\Release\opencv_aruco320.lib;..\..\lib\Release\opencv_optflow320.lib;..\..\lib\Release\opencv_stitching320.lib;..\..\lib\Release\opencv_datasets320.lib;..\..\lib\Release\opencv_face320.lib;..\..\lib\Release\opencv_text320.lib;..\..\lib\Release\opencv_photo320.lib;..\..\lib\Release\opencv_ximgproc320.lib;..\..\lib\Release\opencv_objdetect320.lib;..\..\lib\Release\opencv_xfeatures2d320.lib;..\..\lib\Release\opencv_shape320.lib;..\..\lib\Release\opencv_video320.lib;..\..\lib\Release\opencv_calib3d320.lib;..\..\lib\Release\opencv_features2d320.lib;..\..\lib\Release\opencv_flann320.lib;..\..\lib\Release\opencv_ml320.lib;..\..\lib\Release\opencv_highgui320.lib;..\..\lib\Release\opencv_videoio320.lib;..\..\lib\Release\opencv_imgcodecs320.lib;..\..\lib\Release\opencv_imgproc320.lib;..\..\lib\Release\opencv_core320.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>../../lib/Release/opencv_python2.lib</ImportLibrary>
+      <ProgramDataBaseFile>../../lib/Release/cv2.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="pyopencv_generated_include.h" />
+    <ClInclude Include="pyopencv_generated_funcs.h" />
+    <ClInclude Include="pyopencv_generated_types.h" />
+    <ClInclude Include="pyopencv_generated_type_reg.h" />
+    <ClInclude Include="pyopencv_generated_ns_reg.h" />
+    <ClInclude Include="..\flann\misc\python\pyopencv_flann.hpp" />
+    <ClInclude Include="..\ml\misc\python\pyopencv_ml.hpp" />
+    <ClInclude Include="..\features2d\misc\python\pyopencv_features2d.hpp" />
+    <ClInclude Include="..\stitching\misc\python\pyopencv_stitching.hpp" />
+    <ClInclude Include="pyopencv_custom_headers.h" />
+    <ClCompile Include="..\python\src2\cv2.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
