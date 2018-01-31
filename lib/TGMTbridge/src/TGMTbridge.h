@@ -2,6 +2,10 @@
 #include "stdafx.h"
 
 using namespace System::Drawing;
+
+#define Str2str TGMTbridge::SystemStr2stdStr
+#define str2Str TGMTbridge::stdStrToSystemStr
+
 namespace TGMT 
 {
 	ref class TGMTbridge

@@ -73,12 +73,11 @@ String^ TGMTbridgeHardware::GetUDID()
 	String^ udid = GetCpuId();
 	udid += GetPartitionId("C:");
 	String^ mainboardId = GetMainboardId();
-	String^ macAddress = GetMacAddress();
-	if (mainboardId == "" || mainboardId->Length <5)
-		udid += macAddress;
-	else
+	
+	if (mainboardId != "" && mainboardId->Length >5)
 		udid += mainboardId;
 
+	udid += GetMacAddress();
 	udid->Replace(" ", "");
 
 	int index = udid->Length / 2;

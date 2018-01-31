@@ -1,7 +1,5 @@
 // This is the main DLL file.
 
-#include "stdafx.h"
-
 #include "TGMTbridge.h"
 #include "TGMTbridgeUtil.h"
 #include <msclr/marshal.h>
