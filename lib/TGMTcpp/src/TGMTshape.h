@@ -32,9 +32,6 @@ public:
 	static std::vector<cv::Vec2f> DetectLine(cv::Mat matInput);
 	static std::vector<Circle> DetectCircle(cv::Mat);
 
-	static cv::Mat DetectAndDrawLine(cv::Mat imgInput);
-	static cv::Mat DetectAndDrawLine(std::string filePath);
-
 	static cv::Point GetCenterPoint(cv::Rect rect);
 	static bool IsOverlap(cv::Rect rect1, cv::Rect rect2);
 
@@ -47,6 +44,8 @@ public:
 
 	
 	static std::vector<std::vector<cv::Point> > FindSquares(const cv::Mat image);
-	static cv::Mat DrawSquares(cv::Mat matInput, const std::vector<std::vector<cv::Point> > squares);
+	
+
+	static double GetArea(cv::RotatedRect rrect);
 };
 

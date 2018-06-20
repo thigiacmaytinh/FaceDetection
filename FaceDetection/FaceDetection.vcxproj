@@ -75,7 +75,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\</OutDir>
-    <TargetName>FaceCompd</TargetName>
+    <TargetName>$(ProjectName)d</TargetName>
     <IntDir>obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -87,7 +87,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\</OutDir>
-    <TargetName>FaceComp</TargetName>
+    <TargetName>$(ProjectName)</TargetName>
     <IntDir>obj\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -169,38 +169,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTbrightness.cpp" />
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTshape.cpp" />
     <ClCompile Include="FaceDetection.cpp" />
     <ClCompile Include="Winmain.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\stdafx.cpp" />
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMTbrightness.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTcolor.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTConfig.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTdebugger.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTdraw.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTface.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTfile.cpp" />
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMThardware.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMThistogram.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTimage.cpp" />
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMTshape.cpp" />
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMTtransform.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTutil.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTbrightness.h" />
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTshape.h" />
     <ClInclude Include="FaceDetection.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\stdafx.h" />
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMTbrightness.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTcolor.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTConfig.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTdebugger.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTdraw.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTface.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTfile.h" />
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMThardware.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMThistogram.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTimage.h" />
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMTshape.h" />
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMTtransform.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTutil.h" />
   </ItemGroup>
   <ItemGroup>

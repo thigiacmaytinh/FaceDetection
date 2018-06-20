@@ -5,7 +5,6 @@
 #include "TGMTutil.h"
 #include "TGMTdebugger.h"
 #include "TGMTfile.h"
-#include "TGMTshape.h"
 #include "TGMTface.h"
 #include <mutex>
 
@@ -103,5 +102,5 @@ std::string FaceDetection::RecogImages(std::string inputPath, std::string &errMs
 #endif
 	}
 
-	return PrintOutputJson(result,errMsg) ;
+	return "";
 }

@@ -6,9 +6,6 @@
     <ClCompile Include="..\lib\TGMTcpp\src\stdafx.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMTbrightness.cpp">
-      <Filter>TGMT</Filter>
-    </ClCompile>
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTcolor.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
@@ -27,31 +24,25 @@
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTfile.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMThardware.cpp">
-      <Filter>TGMT</Filter>
-    </ClCompile>
     <ClCompile Include="..\lib\TGMTcpp\src\TGMThistogram.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTimage.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTutil.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTshape.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMTtransform.cpp">
-      <Filter>TGMT</Filter>
-    </ClCompile>
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMTutil.cpp">
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTbrightness.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FaceDetection.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\stdafx.h">
-      <Filter>TGMT</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMTbrightness.h">
       <Filter>TGMT</Filter>
     </ClInclude>
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTcolor.h">
@@ -72,22 +63,19 @@
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTfile.h">
       <Filter>TGMT</Filter>
     </ClInclude>
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMThardware.h">
-      <Filter>TGMT</Filter>
-    </ClInclude>
     <ClInclude Include="..\lib\TGMTcpp\src\TGMThistogram.h">
       <Filter>TGMT</Filter>
     </ClInclude>
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTimage.h">
       <Filter>TGMT</Filter>
     </ClInclude>
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTutil.h">
+      <Filter>TGMT</Filter>
+    </ClInclude>
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTshape.h">
       <Filter>TGMT</Filter>
     </ClInclude>
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMTtransform.h">
-      <Filter>TGMT</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMTutil.h">
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTbrightness.h">
       <Filter>TGMT</Filter>
     </ClInclude>
   </ItemGroup>

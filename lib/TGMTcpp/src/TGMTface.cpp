@@ -236,7 +236,7 @@ int TGMTface::DetectAndDrawFaces(cv::Mat& imgInput)
 
 	for (int i = 0; i < rects.size(); i++)
 	{
-		cv::rectangle(imgInput, rects[i], cv::Scalar(255, 0, 0));
+		cv::rectangle(imgInput, rects[i], GREEN, 2);
 	}
 
 	return rects.size();

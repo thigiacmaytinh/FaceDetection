@@ -2,7 +2,6 @@
 #include "TGMTdebugger.h"
 #include "TGMTimage.h"
 #include "TGMTcolor.h"
-#include "TGMTdraw.h"
 
 //TGMTshape::TGMTshape()
 //{
@@ -73,49 +72,6 @@ std::vector<TGMTshape::Circle> TGMTshape::DetectCircle(cv::Mat matInput)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTshape::DetectAndDrawLine(cv::Mat imgSrc)
-{
-	if (!imgSrc.data)
-		return cv::Mat(1, 1, 0);
-	cv::Mat imgBlur, imgGray, imgBinary;
-	cv::cvtColor(imgSrc, imgGray, CV_BGR2GRAY);
-
-	//convert BGR image to binary image
-#if 0
-	GaussianBlur(imgGray, imgBlur, cv::Size(3, 3), 2);
-	imshow("imgBlur", imgBlur);
-	cv::Canny(imgBlur, imgBinary, 50, 150, 3);
-#else
-	GaussianBlur(imgGray, imgBlur, cv::Size(9, 9), 2);
-	cv::threshold(imgBlur, imgBinary, 0, 255, CV_THRESH_OTSU);
-#endif
-	imshow("imgBinary", imgBinary);
-	//DEBUG_IMAGE(imgBlur, "IMG BLUR");
-
-	//detect lines
-#if 1
-
-	std::vector<cv::Vec2f> lines;
-	HoughLines(imgBinary, lines, 1, CV_PI / 180, 100);
-	TGMTdraw::DrawLines(imgSrc, lines);
-#else
-
-	std::vector<cv::Vec4i> lines;
-	HoughLinesP(imgBinary, lines, 1, CV_PI / 180, 50, 50, 10);
-	TGMTshape::DrawLines(imgSrc, lines);
-#endif
-	return imgSrc;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-cv::Mat TGMTshape::DetectAndDrawLine(std::string filePath)
-{
-	return DetectAndDrawLine(cv::imread(filePath));
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
 cv::Point TGMTshape::GetCenterPoint(cv::Rect rect)
 {
 	return cv::Point(rect.x + rect.width / 2, rect.y + rect.height / 2);
@@ -128,10 +84,6 @@ bool TGMTshape::IsOverlap(cv::Rect rect1, cv::Rect rect2)
 	int area = (rect1 & rect2).area();
 	return area > 0;
 }
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -311,17 +263,20 @@ std::vector<std::vector<cv::Point> > TGMTshape::FindSquares(const cv::Mat image)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// the function draws all the squares in the image
-cv::Mat TGMTshape::DrawSquares(cv::Mat matInput, const std::vector<std::vector<cv::Point> > squares)
+double TGMTshape::GetArea(cv::RotatedRect rrect)
 {
-	cv::Mat matDraw = matInput.clone();
-	for (size_t i = 0; i < squares.size(); i++)
-	{
-		const cv::Point* p = &squares[i][0];
-		int n = (int)squares[i].size();
-		polylines(matDraw, &p, &n, 1, true, cv::Scalar(0, 255, 0), 3, cv::LINE_AA);
-	}
-	
+	cv::Rect r = rrect.boundingRect();
+	if (rrect.angle == 0)
+		return r.area();
 
-	return matDraw;
+	cv::Point2f points[4];
+	rrect.points(points);
+	double d0 = cv::norm(cv::Mat(points[0]), cv::Mat(points[1]));
+	double d1 = cv::norm(cv::Mat(points[1]), cv::Mat(points[2]));
+	double d2 = cv::norm(cv::Mat(points[2]), cv::Mat(points[3]));
+	double d3 = cv::norm(cv::Mat(points[3]), cv::Mat(points[0]));
+
+	double p = (d0 + d1 + d2 + d3 ) / 2;
+	double s = (p - d0) * (p - d1) * (p - d2) * (p - d3);
+	return sqrt(s);
 }
