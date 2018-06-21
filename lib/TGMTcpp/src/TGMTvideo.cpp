@@ -5,12 +5,11 @@
 #include <Windows.h>
 #endif
 #include "TGMTutil.h"
-
+#include "TGMTConfig.h"
 
 TGMTvideo* TGMTvideo::instance = NULL;
 
 std::string m_outDir;
-
 
 TGMTvideo::TGMTvideo()
 {
@@ -39,6 +38,13 @@ bool TGMTvideo::LoadVideoFile(std::string videoFilePath)
 		return false;
 	}
 	return true;
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void TGMTvideo::PlayVideo()
+{
+	PlayVideo(m_videoPath, cv::Size(m_inputWidth, m_inputHeight), m_fps, m_startIndex, m_playTotalFrame);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -145,3 +151,23 @@ int TGMTvideo::GetAmountFrame(std::string videoFilePath)
 	return amountOfFrame;
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool TGMTvideo::LoadConfig()
+{
+	PrintMessage("Loading video in config.ini");
+	m_loadConfigSuccess = false;
+
+	//read config
+	m_videoPath = GetTGMTConfig()->ReadValueString("TGMTvideo", "video");
+	ASSERT(!m_videoPath.empty(), "Video path is empty");
+
+	
+	m_inputWidth = GetTGMTConfig()->ReadValueInt("TGMTvideo", "input_width");
+	m_inputHeight = GetTGMTConfig()->ReadValueInt("TGMTvideo", "input_height");
+
+	m_startIndex = GetTGMTConfig()->ReadValueInt("TGMTvideo", "start_video_at_frame");
+	m_playTotalFrame = GetTGMTConfig()->ReadValueInt("TGMTvideo", "play_total_frame");
+
+	return true;
+}

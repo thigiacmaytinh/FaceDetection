@@ -9,6 +9,14 @@ class TGMTvideo
 	bool m_stopVideo = false;
 	cv::VideoCapture mCap;
 	static TGMTvideo* instance;
+	bool m_loadConfigSuccess = false;
+	std::string m_videoPath;
+	int m_inputWidth;
+	int m_inputHeight;
+	int m_fps;
+	int m_startIndex;
+	int m_playTotalFrame;
+
 	bool LoadVideoFile(std::string videoFilePath);
 	
 #ifdef _MANAGED
@@ -31,10 +39,11 @@ public:
 	std::function<void(cv::Mat)> OnNewFrame;
 #endif
 
-	
+	bool LoadConfig();
 
 	//play video from file
-	void PlayVideo(std::string videoFilePath, cv::Size maxSize = cv::Size(0, 0), int fps = 0, int startIndex = 0, int total=0);
+	void PlayVideo();
+	void PlayVideo(std::string videoFilePath, cv::Size maxSize = cv::Size(0, 0), int fps = 0, int startIndex = 0, int total = 0);
 	void StopVideo() {	m_stopVideo = true;	};
 
 	void ExtractFrame(std::string videoFilePath, std::string outputDir, cv::Size outputSize = cv::Size(0, 0), int startIndex =0, int total = 0);

@@ -9,6 +9,7 @@
 #include "TGMTface.h"
 #include "TGMTdraw.h"
 #include "TGMTcamera.h"
+#include "TGMTvideo.h"
 
 #define INI "FaceDetection"
 
@@ -52,7 +53,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	}
 	else // video
 	{
-
+		GetTGMTvideo()->OnNewFrame = OnNewFrame;
+		GetTGMTvideo()->LoadConfig();
+		GetTGMTvideo()->PlayVideo();
 	}
 	
 	cv::waitKey();

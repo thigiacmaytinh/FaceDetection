@@ -172,6 +172,7 @@
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTbrightness.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTcamera.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTshape.cpp" />
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTvideo.cpp" />
     <ClCompile Include="FaceDetection.cpp" />
     <ClCompile Include="Winmain.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\stdafx.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTbrightness.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTcamera.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTshape.h" />
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTvideo.h" />
     <ClInclude Include="FaceDetection.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\stdafx.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTcolor.h" />

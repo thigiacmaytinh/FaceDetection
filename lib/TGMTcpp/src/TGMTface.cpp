@@ -231,9 +231,7 @@ std::vector<cv::Rect> TGMTface::DetectFaces(cv::Mat matInput)
 int TGMTface::DetectAndDrawFaces(cv::Mat& imgInput)
 {
 	std::vector<cv::Rect> rects = DetectFaces(imgInput);
-	TGMTdraw::PutText(imgInput, cv::Point(10, 30), cv::Scalar(0,0,255), "Detected %d face", rects.size());
-
-
+	
 	for (int i = 0; i < rects.size(); i++)
 	{
 		cv::rectangle(imgInput, rects[i], GREEN, 2);
