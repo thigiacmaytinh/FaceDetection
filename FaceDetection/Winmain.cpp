@@ -1,21 +1,26 @@
-// FaceRecognition.cpp : Defines the entry point for the console application.
-//
-
-#ifndef LIB_CS
 #include "stdafx.h"
 #include <tchar.h>
-#include <time.h>
 #include "TGMTfile.h"
 #include "TGMTdebugger.h"
 #include "TGMTutil.h"
-#include <ppl.h>
 #include <windows.h>
 #include "TGMTConfig.h"
 #include "FaceDetection.h"
 #include "TGMTface.h"
 #include "TGMTdraw.h"
+#include "TGMTcamera.h"
 
 #define INI "FaceDetection"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void OnNewFrame(cv::Mat frame)
+{
+	int count = GetTGMTface()->DetectAndDrawFaces(frame);
+	TGMTdraw::PutText(frame, cv::Point(10, 30), GREEN, "%d face", count);
+	ShowImage(frame, "https://thigiacmaytinh.com - Face detection");
+	cv::waitKey(1);
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -28,7 +33,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	GetTGMTface()->Init();
 
 	int source = GetTGMTConfig()->ReadValueInt(INI, "source", 1);
-	if (source == 0)
+	if (source == 0)//image
 	{
 		std::string imgPath = GetTGMTConfig()->ReadValueString(INI, "image");
 		cv::Mat mat = cv::imread(imgPath);
@@ -37,11 +42,15 @@ int _tmain(int argc, _TCHAR* argv[])
 		int count = GetTGMTface()->DetectAndDrawFaces(mat);
 		ShowImage(mat, "Detected %d faces", count);
 	}
-	else if (source == 1)
+	else if (source == 1)//camera
 	{
+		GetTGMTcamera()->OnNewFrame = OnNewFrame;
+		ASSERT(GetTGMTcamera()->LoadConfig(), "Can not load camera");
 
+		
+		GetTGMTcamera()->Start();
 	}
-	else
+	else // video
 	{
 
 	}
@@ -51,4 +60,3 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	return 0;
 }
-#endif

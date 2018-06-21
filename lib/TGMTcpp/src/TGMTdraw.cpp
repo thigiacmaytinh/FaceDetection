@@ -15,14 +15,14 @@
 
 
 
-void TGMTdraw::DrawLine(cv::Mat matInput, cv::Point pt1, cv::Point pt2, cv::Scalar color)
+void TGMTdraw::DrawLine(cv::Mat& matInput, cv::Point pt1, cv::Point pt2, cv::Scalar color)
 {
 	DrawLine(matInput, pt1, pt2, color, 1);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTdraw::DrawLine(cv::Mat matInput, cv::Point pt1, cv::Point pt2, cv::Scalar color, int thickness)
+void TGMTdraw::DrawLine(cv::Mat& matInput, cv::Point pt1, cv::Point pt2, cv::Scalar color, int thickness)
 {
 	DrawLine(matInput,pt1, pt2, color, thickness, 8);
 }
@@ -30,23 +30,23 @@ void TGMTdraw::DrawLine(cv::Mat matInput, cv::Point pt1, cv::Point pt2, cv::Scal
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTdraw::DrawLine(cv::Mat matInput, cv::Point pt1, cv::Point pt2, cv::Scalar color, int thickness, int lineType)
+void TGMTdraw::DrawLine(cv::Mat& matInput, cv::Point pt1, cv::Point pt2, cv::Scalar color, int thickness, int lineType)
 {
 	DrawLine(matInput,pt1, pt2, color, thickness, lineType, 0);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTdraw::DrawLine(cv::Mat matInput, cv::Point pt1, cv::Point pt2, cv::Scalar color, int thickness, int lineType, int shift)
+void TGMTdraw::DrawLine(cv::Mat& matInput, cv::Point pt1, cv::Point pt2, cv::Scalar color, int thickness, int lineType, int shift)
 {
 	cv::line(matInput, pt1, pt2, color, thickness, lineType, shift);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTdraw::DrawLine(cv::Mat img, cv::Vec2f line, cv::Scalar color)
+void TGMTdraw::DrawLine(cv::Mat& matInput, cv::Vec2f line, cv::Scalar color)
 {
-	if (!img.data)
+	if (!matInput.data)
 		return;
 
 
@@ -54,36 +54,31 @@ void TGMTdraw::DrawLine(cv::Mat img, cv::Vec2f line, cv::Scalar color)
 	{
 		float m = -1 / tan(line[1]);
 		float c = line[0] / sin(line[1]);
-		cv::line(img, cv::Point(0, c), cv::Point(img.size().width, m*img.size().width + c), color);
+		cv::line(matInput, cv::Point(0, c), cv::Point(matInput.cols, m*matInput.cols + c), color);
 	}
 	else
 	{
-		cv::line(img, cv::Point(line[0], 0), cv::Point(line[0], img.size().height), color);
+		cv::line(matInput, cv::Point(line[0], 0), cv::Point(line[0], matInput.rows), color);
 	}
-
-
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTdraw::DrawLine(cv::Mat img, cv::Vec4i line, cv::Scalar color)
+void TGMTdraw::DrawLine(cv::Mat& matInput, cv::Vec4i line, cv::Scalar color)
 {
-	if (!img.data)
+	if (!matInput.data)
 		return;
 
-	cv::line(img, cv::Point(line[0], line[1]), cv::Point(line[2], line[3]), color, 1, CV_AA);
-
+	cv::line(matInput, cv::Point(line[0], line[1]), cv::Point(line[2], line[3]), color, 1, CV_AA);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTdraw::DrawLines(cv::Mat img, std::vector<cv::Vec2f> lines, cv::Scalar color)
+void TGMTdraw::DrawLines(cv::Mat& matInput, std::vector<cv::Vec2f> lines, cv::Scalar color)
 {
-	if (!img.data)
+	if (!matInput.data)
 		return;
 
-
-	//TODO: rewrite function
 	for (int i = 0; i < lines.size(); ++i)
 	{
 		cv::Vec2f line = lines[i];
@@ -91,19 +86,18 @@ void TGMTdraw::DrawLines(cv::Mat img, std::vector<cv::Vec2f> lines, cv::Scalar c
 		{
 			float m = -1 / tan(line[1]);
 			float c = line[0] / sin(line[1]);
-			cv::line(img, cv::Point(0, c), cv::Point(img.size().width, m*img.size().width + c), color);
+			cv::line(matInput, cv::Point(0, c), cv::Point(matInput.cols, m*matInput.cols + c), color);
 		}
 		else
 		{
-			cv::line(img, cv::Point(line[0], 0), cv::Point(line[0], img.size().height), color);
+			cv::line(matInput, cv::Point(line[0], 0), cv::Point(line[0], matInput.rows), color);
 		}
 	}
-
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTdraw::DrawLines(cv::Mat img, std::vector<cv::Vec4i> lines, cv::Scalar color)
+void TGMTdraw::DrawLines(cv::Mat& img, std::vector<cv::Vec4i> lines, cv::Scalar color)
 {
 	if (!img.data)
 		return;
@@ -116,7 +110,7 @@ void TGMTdraw::DrawLines(cv::Mat img, std::vector<cv::Vec4i> lines, cv::Scalar c
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTdraw::DrawLine(cv::Mat imgInput, int rhoValue, int thetaValue)
+void TGMTdraw::DrawLine(cv::Mat& imgInput, int rhoValue, int thetaValue)
 {
 	cv::Vec2f line = cv::Vec2f(rhoValue, thetaValue);
 	DrawLine(imgInput, line);
@@ -124,32 +118,30 @@ void TGMTdraw::DrawLine(cv::Mat imgInput, int rhoValue, int thetaValue)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::DrawRectangle(const cv::Mat matInput, cv::Rect rect, cv::Scalar color)
+void TGMTdraw::DrawRectangle(cv::Mat& matInput, cv::Rect rect, cv::Scalar color)
 {
-	return DrawRectangle( matInput, rect, color, 1);
+	return DrawRectangle(matInput, rect, color, 1);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::DrawRectangle(const cv::Mat matInput, cv::Rect rect, cv::Scalar color, int thickness)
+void TGMTdraw::DrawRectangle(cv::Mat& matInput, cv::Rect rect, cv::Scalar color, int thickness)
 {
 	return DrawRectangle(matInput, rect, color, thickness, 8, 0);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::DrawRectangle(const cv::Mat matInput, cv::Rect rect, cv::Scalar color, int thickness, int lineType)
+void TGMTdraw::DrawRectangle(cv::Mat& matInput, cv::Rect rect, cv::Scalar color, int thickness, int lineType)
 {
 	return DrawRectangle(matInput, rect, color, thickness, lineType, 0);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::DrawRectangle(const cv::Mat matInput, cv::Rect rect, cv::Scalar color, int thickness, int lineType, int shift)
+void TGMTdraw::DrawRectangle(cv::Mat& matInput, cv::Rect rect, cv::Scalar color, int thickness, int lineType, int shift)
 {
-	cv::Mat matDraw = matInput.clone();
-	cv::rectangle(matDraw, rect.tl(), rect.br(), color, thickness, lineType, shift);
-	return matDraw;
+	cv::rectangle(matInput, rect.tl(), rect.br(), color, thickness, lineType, shift);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -167,7 +159,7 @@ void TGMTdraw::DrawRectangles(cv::Mat& matInput, std::vector<cv::Rect> rects, in
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::PutText(cv::Mat img, cv::Point p, cv::Scalar color, const char* fmt, ...)
+void TGMTdraw::PutText(cv::Mat& img, cv::Point p, cv::Scalar color, const char* fmt, ...)
 {
 	char str[DEBUG_OUT_BUFFER_SIZE];
 	va_list arg_list;
@@ -180,12 +172,12 @@ cv::Mat TGMTdraw::PutText(cv::Mat img, cv::Point p, cv::Scalar color, const char
 	vsnprintf(str, DEBUG_OUT_BUFFER_SIZE - 1, fmt, arg_list);
 
 
-	return PutText(img, p, color, 1.f, str);
+	PutText(img, p, color, 1.f, str);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::PutText(cv::Mat img, cv::Point p, cv::Scalar color, float fontScale, const char* fmt, ...)
+void TGMTdraw::PutText(cv::Mat& img, cv::Point p, cv::Scalar color, float fontScale, const char* fmt, ...)
 {
 	char str[DEBUG_OUT_BUFFER_SIZE];
 	va_list arg_list;
@@ -196,28 +188,25 @@ cv::Mat TGMTdraw::PutText(cv::Mat img, cv::Point p, cv::Scalar color, float font
 #endif
 	vsnprintf(str, DEBUG_OUT_BUFFER_SIZE - 1, fmt, arg_list);
 
-	return PutText(img, p, color, fontScale, str);
+	PutText(img, p, color, fontScale, str);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::PutText(cv::Mat mat, cv::Point p, cv::Scalar color, float fontScale, char* text)
+void TGMTdraw::PutText(cv::Mat& matInput, cv::Point p, cv::Scalar color, float fontScale, char* text)
 {
 	if (text == nullptr || text == "")
-		return mat;
-	cv::Mat matDraw = mat.clone();
+		return;
 
-	cv::putText(matDraw, text, p, cv::FONT_ITALIC, fontScale, color, 2);
-	return matDraw;
+	cv::putText(matInput, text, p, cv::FONT_ITALIC, fontScale, color, 2);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::DrawRotatedRectangle(cv::Mat matInput, cv::RotatedRect rect, int thickness, cv::Scalar color)
+void TGMTdraw::DrawRotatedRectangle(cv::Mat& matInput, cv::RotatedRect rect, int thickness, cv::Scalar color)
 {
-	cv::Mat matDraw = matInput.clone();
-	if (matDraw.channels() == 1)
-		cv::cvtColor(matDraw, matDraw, CV_GRAY2BGR);
+	if (matInput.channels() == 1)
+		cv::cvtColor(matInput, matInput, CV_GRAY2BGR);
 	cv::Point2f rectPoints[4]; 
 	rect.points(rectPoints);
 
@@ -226,18 +215,16 @@ cv::Mat TGMTdraw::DrawRotatedRectangle(cv::Mat matInput, cv::RotatedRect rect, i
 		clr = TGMTcolor::GetRandomColor();
 	for (int j = 0; j < 4; j++)
 	{
-		line(matDraw, rectPoints[j], rectPoints[(j + 1) % 4], clr, thickness, 8);
+		line(matInput, rectPoints[j], rectPoints[(j + 1) % 4], clr, thickness, 8);
 	}
-	return matDraw;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::DrawRotatedRectangles(cv::Mat matInput, std::vector<cv::RotatedRect> rects, int thickness, cv::Scalar color)
+void TGMTdraw::DrawRotatedRectangles(cv::Mat& matInput, std::vector<cv::RotatedRect> rects, int thickness, cv::Scalar color)
 {
-	cv::Mat matDraw = matInput.clone();
-	if (matDraw.channels() == 1)
-		cv::cvtColor(matDraw, matDraw, CV_GRAY2BGR);
+	if (matInput.channels() == 1)
+		cv::cvtColor(matInput, matInput, CV_GRAY2BGR);
 
 	for (int i = 0; i < rects.size(); i++)
 	{
@@ -249,15 +236,14 @@ cv::Mat TGMTdraw::DrawRotatedRectangles(cv::Mat matInput, std::vector<cv::Rotate
 			clr = TGMTcolor::GetRandomColor();
 		for (int j = 0; j < 4; j++)
 		{
-			cv::line(matDraw, rectPoints[j], rectPoints[(j + 1) % 4], clr, thickness, 8);
+			cv::line(matInput, rectPoints[j], rectPoints[(j + 1) % 4], clr, thickness, 8);
 		}
 	}
-	return matDraw;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::DrawRectMask(cv::Mat matInput, cv::Rect rect, float alpha)
+void TGMTdraw::DrawRectMask(cv::Mat& matInput, cv::Rect rect, float alpha)
 {
 	cv::Mat mask(matInput.size(), CV_8UC3, BLACK);
 	cv::rectangle(mask, rect, WHITE, -1);
@@ -269,29 +255,23 @@ cv::Mat TGMTdraw::DrawRectMask(cv::Mat matInput, cv::Rect rect, float alpha)
 	cv::Mat matBlur(matInput.size(), CV_8UC3);
 	cv::addWeighted(matInput, 1 - alpha, cv::Scalar(50, 50, 50), alpha, 0.0, matBlur);
 	cv::addWeighted(matRoi, 1, matBlur, 1, 0.0, matRoi);
-
-	return matRoi;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::DrawCircle(cv::Mat matInput, TGMTshape::Circle circle, cv::Scalar color, int thickness)
+void TGMTdraw::DrawCircle(cv::Mat& matInput, TGMTshape::Circle circle, cv::Scalar color, int thickness)
 {
-	cv::Mat mat = matInput.clone();
-	cv::circle(mat, circle.center, circle.radius,color, thickness, 8, 0);
-	return mat;
+	cv::circle(matInput, circle.center, circle.radius,color, thickness, 8, 0);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-cv::Mat TGMTdraw::DrawCircles(cv::Mat matInput, std::vector<TGMTshape::Circle> circles, cv::Scalar color, int thickness)
+void TGMTdraw::DrawCircles(cv::Mat& matInput, std::vector<TGMTshape::Circle> circles, cv::Scalar color, int thickness)
 {
-	cv::Mat matDraw = matInput.clone();
 	for (size_t i = 0; i < circles.size(); i++)
 	{
-		cv::circle(matDraw, circles[i].center, circles[i].radius, color == UNDEFINED_COLOR ? TGMTcolor::GetRandomColor() : color, thickness, 8, 0);
+		cv::circle(matInput, circles[i].center, circles[i].radius, color == UNDEFINED_COLOR ? TGMTcolor::GetRandomColor() : color, thickness, 8, 0);
 	}
-	return matDraw;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -318,4 +298,16 @@ void TGMTdraw::DrawNoticeBox(cv::Mat& matInput, cv::Rect rect, cv::Scalar color,
 	cv::putText(matInput, str, tl , cv::FONT_ITALIC, 1, color);
 	
 
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void TGMTdraw::DrawSquares(cv::Mat matInput, const std::vector<std::vector<cv::Point> > squares)
+{
+	for (size_t i = 0; i < squares.size(); i++)
+	{
+		const cv::Point* p = &squares[i][0];
+		int n = (int)squares[i].size();
+		cv::polylines(matInput, &p, &n, 1, true, cv::Scalar(0, 255, 0), 3, cv::LINE_AA);
+	}
 }

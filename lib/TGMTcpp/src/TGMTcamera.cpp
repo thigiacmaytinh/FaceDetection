@@ -256,7 +256,17 @@ void TGMTcamera::Start()
 
 	m_isRunning = true;
 
-	StartCameras(m_camSources);
+	if (m_camSources.size() == 1)
+	{
+		if (TGMTutil::IsNumber(m_camSources[0]))
+			StartCamera(atoi(m_camSources[0].c_str()));
+		else
+			StartCamera(m_camSources[0].c_str());
+	}
+	else
+	{
+		StartCameras(m_camSources);
+	}
 	m_threadUpdate = std::thread(&TGMTcamera::Update, this);
 }
 
