@@ -4,3 +4,8 @@
 *.obj
 *.lib
 *.pch
+*.ilk
+*.opendb
+*.tlog
+*.pdb
+*.log
