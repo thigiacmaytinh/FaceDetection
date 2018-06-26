@@ -1,14 +1,14 @@
-Đây là chương trình phát hiện khuôn mặt trong ảnh sử dụng OpenCV. "Phát hiện" nghĩa là chỉ xác định trong ảnh có khuôn mặt người hay không? Nếu có thì ở vị trí nào & có bao nhiêu khuôn mặt. Chương trình không nhận diện khuôn mặt có trong ảnh. 
-
-Chương trình nhận diện khuôn mặt trong branch FaceRecognition: https://github.com/thigiacmaytinh/FaceDetection/tree/FaceRecognition
+Đây là chương trình nhận diện khuôn mặt trong ảnh sử dụng EmguCV. Sau khi build xong thì sử dụng chương trình như sau:
+	- Ấn nút "1. Detect and recognize" để lấy hình ảnh từ webcam. Khi phát hiện khuôn mặt chương trình sẽ vẽ 1 hình chữ nhật.
+	- Khi phát hiện được khuôn mặt thì điền tên người vào textbox rồi ấn nút "2. Add face"
+	- Chương trình sẽ training khuôn mặt rồi detect realtime.
 
 Thuật toán:
-	- Chương trình load config trong file config.ini
-	- Dựa vào config mà chương trình sẽ load data và input source tương ứng
-	- Có 3 loại input: hình ảnh, camera & video
-		+ Đối với hình ảnh chương trình sẽ load rồi hiển thị
-		+ Đối với camera & video thì chương trình sẽ play rồi hiển thị realtime
+	- Chương trình load file data để detect khuôn mặt
+	- Khi có ảnh khuôn mặt và label tên người thì chương trình sẽ training và save lại ảnh khuôn mặt
+
 	
+Nguồn: https://www.codeproject.com/Articles/239849/Multiple-face-detection-and-recognition-in-real
 	
 Mọi chi tiết liên hệ:
 https://www.facebook.com/groups/thigiacmaytinh

@@ -9,3 +9,4 @@
 *.tlog
 *.pdb
 *.log
+obj/
