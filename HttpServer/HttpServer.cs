@@ -198,7 +198,7 @@ namespace Bend.Util
 
     public class HttpServer
     {
-        FaceCompBridge faceComp;// = new FaceCompBridge();
+        FaceCompBridge faceComp;
 
         protected int port;
         TcpListener listener;
@@ -266,7 +266,7 @@ namespace Bend.Util
         }
     }
 
-    public class TestMain
+    public class FaceComp
     {
         public static int Main(String[] args)
         {
