@@ -5,7 +5,6 @@
 #include "TGMTutil.h"
 #include <windows.h>
 #include "TGMTConfig.h"
-#include "FaceDetection.h"
 #include "TGMTface.h"
 #include "TGMTdraw.h"
 #include "TGMTcamera.h"
