@@ -1,5 +1,4 @@
-#include "stdafx.h"
-#include "FaceComp.h"
+#include "FaceRecognition.h"
 #include "TGMTConfig.h"
 #include "TGMTface.h"
 #include "TGMTutil.h"
@@ -13,14 +12,14 @@
 std::mutex m_mutex;
 bool g_isRuning = true;
 
-FaceComp* FaceComp::m_instance = nullptr;
+FaceRecognition* FaceRecognition::m_instance = nullptr;
 cv::Mat m_mat;
 
 
 int key = -1;
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-FaceComp::FaceComp()
+FaceRecognition::FaceRecognition()
 {
 #ifdef LIB_CS
 	GetTGMTConfig()->LoadSettingFromFile("FaceComp_config.ini");
@@ -36,13 +35,13 @@ FaceComp::FaceComp()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-FaceComp::~FaceComp()
+FaceRecognition::~FaceRecognition()
 {
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-std::vector<std::string> FaceComp::RecogImage(cv::Mat matInput, bool cropped)
+std::vector<std::string> FaceRecognition::RecogImage(cv::Mat matInput, bool cropped)
 {
 	std::vector<std::string> nameList;
 	if (!matInput.data)
@@ -68,7 +67,7 @@ std::vector<std::string> FaceComp::RecogImage(cv::Mat matInput, bool cropped)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-std::string FaceComp::RecogImages(std::string inputPath, std::string &errMsg, bool cropped)
+std::string FaceRecognition::RecogImages(std::string inputPath, std::string &errMsg, bool cropped)
 
 {
 	std::vector<std::pair< std::string, std::string>> result;
@@ -109,7 +108,7 @@ std::string FaceComp::RecogImages(std::string inputPath, std::string &errMsg, bo
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-std::string FaceComp::PrintOutputJson(std::vector<std::pair< std::string, std::string>> result, std::string errMsg)
+std::string FaceRecognition::PrintOutputJson(std::vector<std::pair< std::string, std::string>> result, std::string errMsg)
 {
 	Json::Value json;
 
@@ -137,7 +136,7 @@ std::string FaceComp::PrintOutputJson(std::vector<std::pair< std::string, std::s
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-std::string FaceComp::RecogSingleImage(cv::Mat matInput, bool cropped)
+std::string FaceRecognition::RecogSingleImage(cv::Mat matInput, bool cropped)
 {
 	Json::Value json;
 	json["person"] = "";
@@ -177,7 +176,7 @@ std::string FaceComp::RecogSingleImage(cv::Mat matInput, bool cropped)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-std::string FaceComp::RecogSingleImage(std::string imgPath, bool cropped)
+std::string FaceRecognition::RecogSingleImage(std::string imgPath, bool cropped)
 {
 	if (TGMTfile::FileExist(TGMTfile::GetCurrentDir() + "\\" + imgPath))
 	{

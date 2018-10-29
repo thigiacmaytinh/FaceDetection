@@ -11,7 +11,7 @@
 #include <ppl.h>
 #include <windows.h>
 #include "TGMTConfig.h"
-#include "FaceComp.h"
+#include "FaceRecognition.h"
 #include "TGMTface.h"
 #include "TGMTdraw.h"
 #include "TGMTtransform.h"
@@ -22,7 +22,7 @@ void PrintHelp()
 {
 	PrintMessage("Use with some parameters:");
 
-	PrintMessageGreen("FaceComp.exe -createsample <image path|dir> <output dir>");
+	PrintMessageGreen("FaceRecognition.exe -createsample <image path|dir> <output dir>");
 #ifdef _DEBUG
 	PrintMessageGreen("             -recog <image path|dir> [-cropped] [-debug]");
 #endif

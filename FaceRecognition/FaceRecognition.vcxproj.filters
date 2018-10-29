@@ -6,7 +6,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="FaceComp.cpp" />
     <ClCompile Include="Winmain.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTbrightness.cpp">
       <Filter>TGMT</Filter>
@@ -50,9 +49,9 @@
     <ClCompile Include="..\lib\TGMTcpp\src\stdafx.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
+    <ClCompile Include="FaceRecognition.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FaceComp.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\stdafx.h">
       <Filter>TGMT</Filter>
     </ClInclude>
@@ -95,5 +94,6 @@
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTutil.h">
       <Filter>TGMT</Filter>
     </ClInclude>
+    <ClInclude Include="FaceRecognition.h" />
   </ItemGroup>
 </Project>

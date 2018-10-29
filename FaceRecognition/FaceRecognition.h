@@ -3,23 +3,23 @@
 #include <vector>
 #include "stdafx.h"
 
-#define GetFaceComp FaceComp::GetInstance
+#define GetFaceComp FaceRecognition::GetInstance
 
-class FaceComp
+class FaceRecognition
 {
-	static FaceComp* m_instance;
+	static FaceRecognition* m_instance;
 	std::string PrintOutputJson(std::vector<std::pair< std::string, std::string>> result, std::string errorMessage);
 	int m_confident;
 public:
 	bool m_enableDebug = false;
 	
-	FaceComp();
-	~FaceComp();
+	FaceRecognition();
+	~FaceRecognition();
 
-	static FaceComp* GetInstance()
+	static FaceRecognition* GetInstance()
 	{
 		if (!m_instance)
-			m_instance = new FaceComp();
+			m_instance = new FaceRecognition();
 		return m_instance;
 	}
 
