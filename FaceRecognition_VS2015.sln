@@ -37,8 +37,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libwebp", "lib\opencv320\3r
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IlmImf", "lib\opencv320\3rdparty\openexr\IlmImf.vcxproj", "{A8104AFF-8102-49F8-ACD3-0E4A059E559F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jsoncpp", "lib\jsoncpp\project\vs2015\jsoncpp.vcxproj", "{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FaceRecognition", "FaceRecognition\FaceRecognition.vcxproj", "{BA9B567F-388B-4AA7-BCAA-A145D895F4C4}"
 EndProject
 Global
@@ -115,10 +113,6 @@ Global
 		{A8104AFF-8102-49F8-ACD3-0E4A059E559F}.Debug|Win32.Build.0 = Debug|Win32
 		{A8104AFF-8102-49F8-ACD3-0E4A059E559F}.Release|Win32.ActiveCfg = Release|Win32
 		{A8104AFF-8102-49F8-ACD3-0E4A059E559F}.Release|Win32.Build.0 = Release|Win32
-		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Debug|Win32.ActiveCfg = Debug|Win32
-		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Debug|Win32.Build.0 = Debug|Win32
-		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Release|Win32.ActiveCfg = Release|Win32
-		{42ABB4F7-AE8A-3393-B7A2-BE6923019AF4}.Release|Win32.Build.0 = Release|Win32
 		{BA9B567F-388B-4AA7-BCAA-A145D895F4C4}.Debug|Win32.ActiveCfg = Debug|Win32
 		{BA9B567F-388B-4AA7-BCAA-A145D895F4C4}.Debug|Win32.Build.0 = Debug|Win32
 		{BA9B567F-388B-4AA7-BCAA-A145D895F4C4}.Release|Win32.ActiveCfg = Release|Win32

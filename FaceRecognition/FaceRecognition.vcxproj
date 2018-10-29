@@ -67,7 +67,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_face320d.lib;opencv_ml320d.lib;opencv_objdetect320d.lib;opencv_videoio320d.lib;jsoncpp_x86_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_face320d.lib;opencv_ml320d.lib;opencv_objdetect320d.lib;opencv_videoio320d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\jsoncpp\project\vs2015\$(Configuration)\;$(SolutionDir)lib\jsoncpp\project\vs2015\compiled_lib\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -87,11 +87,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opencv_face320.lib;opencv_ml320.lib;opencv_objdetect320.lib;opencv_videoio320.lib;jsoncpp_x86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_face320.lib;opencv_ml320.lib;opencv_objdetect320.lib;opencv_videoio320.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\jsoncpp\project\vs2015\$(Configuration)\;$(SolutionDir)lib\jsoncpp\project\vs2015\compiled_lib\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTcamera.cpp" />
     <ClCompile Include="FaceRecognition.cpp" />
     <ClCompile Include="Winmain.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\stdafx.cpp" />
@@ -112,6 +113,7 @@
   <ItemGroup>
     <ClInclude Include="..\lib\TGMTcpp\src\stdafx.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTbrightness.h" />
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTcamera.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTcolor.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTConfig.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTdebugger.h" />
@@ -127,9 +129,6 @@
     <ClInclude Include="FaceRecognition.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\lib\jsoncpp\project\vs2015\jsoncpp.vcxproj">
-      <Project>{42abb4f7-ae8a-3393-b7a2-be6923019af4}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\3rdparty\libjasper\libjasper.vcxproj">
       <Project>{fc470206-6f71-4925-be63-6db515ef3a44}</Project>
     </ProjectReference>

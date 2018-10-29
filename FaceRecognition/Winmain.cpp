@@ -15,8 +15,14 @@
 #include "TGMTface.h"
 #include "TGMTdraw.h"
 #include "TGMTtransform.h"
+#include "TGMTcamera.h"
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int g_confident;
+int g_id = 1;
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 void PrintHelp()
 {
@@ -28,135 +34,69 @@ void PrintHelp()
 #endif
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void CreateData()
+void LoadConfig()
 {
+	GetTGMTConfig()->LoadSettingFromFile();
+	GetTGMTface()->Init();
+	
+	std::string strConfident = GetTGMTConfig()->ReadValueString(INI_TGMTFACE_SECTION, "guest_confident", "LBPH_confident");
+	g_confident = GetTGMTConfig()->ReadValueInt(INI_TGMTFACE_SECTION, strConfident, -1);
+
+	GetTGMTface()->Training();
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void OnCameraFrame(std::vector<cv::Mat> frames)
+{
+	if (frames.size() == 0)
+	{
+		PrintError("Can not get image from camera");
+		return;
+	}
+
+	std::vector<cv::Rect> rects;
+	std::string errMsg;
+	for (int i = 0; i < frames.size(); i++)
+	{
+		cv::Mat frame = frames[i];
+		std::vector<TGMTface::Person> persons = GetTGMTface()->DetectPersons(frame, rects, errMsg);
+
+		TGMTdraw::DrawRectangles(frame, rects, 1, GREEN);
+
+		for (int j = 0; j < persons.size(); j++)
+		{
+			cv::Point p = rects[j].tl();
+			p.y -= 20;
+			TGMTdraw::PutText(frame, p, GREEN, "%s", persons[i].name.c_str());
+
+			if (persons[i].confident < g_confident)
+			{
+				WriteImageAsync(frame(rects[j]), "faces\\%s\\%s.png",   GetCurrentDateTime(true).c_str());
+			}
+		}
+		
+
+		ShowImage(frames[i], "camera_%d", i);
+	}
+	cv::waitKey(1);
+	
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	SET_CONSOLE_TITLE("FaceCom - Face Compare");
-	if (argc < 2)
-	{
-		PrintHelp();
-	}
-	else
-	{
-		std::string cmd = argv[1];
+	SET_CONSOLE_TITLE("FaceRecognition - Recognize face");
 
-		bool cropped = TGMTutil::CheckParameterAloneExist(argc, argv, "-cropped");
-		bool enableDebug = TGMTutil::CheckParameterAloneExist(argc, argv, "-debug");
+	LoadConfig();
 
-		GetTGMTConfig()->LoadSettingFromFile("FaceComp_config.ini");
+	GetTGMTcamera()->OnNewFrames = OnCameraFrame;
+	GetTGMTcamera()->LoadConfig();
+	GetTGMTcamera()->Start();
 
-#if !defined(LITE)		
-		if (cmd == "-detect")
-		{
-			GetTGMTface()->Init();
-			std::string inputPath = argv[2];
-			cv::Mat matInput = cv::imread(inputPath);
-			std::vector<cv::Rect> faces = GetTGMTface()->DetectFaces(matInput);
-			PrintMessage("Detected %d face(s)", faces.size());
-
-			if (enableDebug)
-			{
-				TGMTdraw::DrawRectangles(matInput, faces, matInput.cols > 800 ? 2 : 1, GREEN);
-				
-				matInput = TGMTtransform::ResizeByScreen(matInput, 100);
-				
-				if(faces.size() > 0)
-					cv::imshow("Face detected", matInput);
-				else
-					cv::imshow("Can not detect faces", matInput);
-				cv::waitKey(0);
-			}
-		}
-#endif
-		if (cmd == "-recog")
-		{
-			std::string inputPath = argv[2];
-			GetFaceComp()->RecogSingleImage(inputPath, cropped);
-			GetFaceComp()->m_enableDebug = enableDebug;
-		}
-		else if (cmd == "-createsample")
-		{
-			std::string inputPath = argv[2];
-			std::string outputDir = argv[3];
-			std::vector<std::string> files;
-
-			if (TGMTfile::IsDir(inputPath))
-			{
-				files = TGMTfile::GetImageFilesInDir(inputPath);
-				TGMTfile::CorrectPath(inputPath);
-				TGMTfile::CorrectPath(outputDir);
-				TGMTfile::CreateDir(outputDir);
-			}
-			else if (TGMTfile::IsImage(inputPath))
-			{
-				files.push_back(inputPath);
-			}
-			else
-			{
-				PrintError("Input is not valid");
-				return 0;
-			}
-
-			GetTGMTface()->Init();
-			
-			float expandRatio = GetTGMTConfig()->ReadValueDouble(INI_TGMTFACE_SECTION, "expand_face_rect_ratio", 1.f);
-			int faceCount = 0;
-			int facewidth = GetTGMTConfig()->ReadValueInt(INI_TGMTFACE_SECTION, "face_size", 100);
-			cv::Size faceSize = cv::Size(facewidth, facewidth);
-
-			for (int i = 0; i < files.size(); i++)
-			{
-				cv::Mat matGray = cv::imread(files[i], CV_LOAD_IMAGE_GRAYSCALE);
-				std::vector<cv::Rect> rects = GetTGMTface()->DetectFaces(matGray);
-				if (rects.size() == 0)
-				{
-					PrintError("%s: can not detect face", files[i].c_str());
-					continue;
-				}
-
-				SET_CONSOLE_TITLE("%d / %d", i, files.size());
-				std::string outputFile = outputDir + TGMTfile::GetFileNameWithoutExtension(TGMTfile::GetFileName(files[i])) + ".jpg";
-				for (int j = 0; j < rects.size(); j++)
-				{
-					PrintMessageYellow("%s: %d faces", files[i].c_str(), rects.size());
-					faceCount += rects.size();
-					cv::Rect rectExpanded = TGMTshape::ExpandRect(rects[j], expandRatio, expandRatio);
-					cv::Mat matFace;
-
-
-					if (TGMTshape::IsRectInsideMat(rectExpanded, matGray))
-					{
-						matFace = matGray(rectExpanded);
-					}
-					else
-					{
-						matFace = matGray(rects[j]);
-					}
-					if (matFace.cols != facewidth && matFace.rows != facewidth)
-					{
-						cv::resize(matFace, matFace, faceSize);
-					}					
-					cv::imwrite(outputFile, matFace);
-				}
-			}
-			if (faceCount == 0)
-				PrintMessage("Can not detect any face in %d images", files.size());
-			else
-				PrintSuccess("Detected %d faces in %d images", faceCount, files.size());
-		}
-		else
-		{
-			PrintHelp();
-		}
-
-	}
 #ifdef _DEBUG
 	getchar();
 #endif

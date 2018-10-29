@@ -8,7 +8,6 @@
 class FaceRecognition
 {
 	static FaceRecognition* m_instance;
-	std::string PrintOutputJson(std::vector<std::pair< std::string, std::string>> result, std::string errorMessage);
 	int m_confident;
 public:
 	bool m_enableDebug = false;
@@ -22,15 +21,7 @@ public:
 			m_instance = new FaceRecognition();
 		return m_instance;
 	}
-
-	//return peoples in image
-	std::vector<std::string> RecogImage(cv::Mat matInput, bool cropped = false);
-
 	// return image path and people in each image
 	std::string RecogImages(std::string inputPath, std::string &errMsg, bool cropped = false);
-
-	//return json
-	std::string RecogSingleImage(cv::Mat matInput, bool cropped = false);
-	std::string RecogSingleImage(std::string imgPath, bool cropped = false);
 };
 
