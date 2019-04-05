@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading;
 using System.Drawing;
-using TGMT;
+using TGMTcs;
 
 // offered to the public domain for any use with no restriction
 // and also with no warranty of any kind, please enjoy. - David Jeske. 
@@ -249,6 +249,20 @@ namespace Bend.Util
             string result = "{\"confident\":0,\"error\":\"\",\"person\":\"\"}";
             try
             {
+                StreamReader reader = new StreamReader(inputData);
+                string data = reader.ReadToEnd();
+                bool isBase64 = TGMTimage.IsBase64(data);
+
+                if (isBase64)
+                {
+                    bmp = (Bitmap)TGMTimage.Base64ToImage(data);
+                    reader.Dispose();
+                }
+                else
+                {
+                    bmp = new Bitmap(inputData);
+                }
+
                 bmp = new Bitmap(inputData);
                 bmp = TGMTimage.CorrectOrientation(bmp);                
 
