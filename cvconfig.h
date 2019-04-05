@@ -102,7 +102,7 @@
 /* #undef HAVE_IPP_A */
 
 /* JPEG-2000 codec */
-#define HAVE_JASPER
+// #define HAVE_JASPER
 
 /* IJG JPEG codec */
 #define HAVE_JPEG
@@ -125,7 +125,7 @@
 /* #undef HAVE_OPENCL_SVM */
 
 /* OpenEXR codec */
-#define HAVE_OPENEXR
+// #define HAVE_OPENEXR
 
 /* OpenGL support*/
 /* #undef HAVE_OPENGL */
@@ -155,7 +155,7 @@
 /* #undef HAVE_TBB */
 
 /* TIFF codec */
-#define HAVE_TIFF
+// #define HAVE_TIFF
 
 /* Unicap video capture library */
 /* #undef HAVE_UNICAP */
