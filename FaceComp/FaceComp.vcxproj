@@ -369,23 +369,11 @@
     <ProjectReference Include="..\lib\jsoncpp\project\vs2015\jsoncpp.vcxproj">
       <Project>{42abb4f7-ae8a-3393-b7a2-be6923019af4}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\3rdparty\libjasper\libjasper.vcxproj">
-      <Project>{fc470206-6f71-4925-be63-6db515ef3a44}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\3rdparty\libjpeg\libjpeg.vcxproj">
       <Project>{d27ae347-08bc-4938-b473-6365cab8e3c2}</Project>
     </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\3rdparty\libpng\libpng.vcxproj">
       <Project>{01bee73e-6f42-4714-9ce6-d968ce1f49d6}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\3rdparty\libtiff\libtiff.vcxproj">
-      <Project>{97b29acd-cf80-4ae0-9c6c-b414484480ad}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\3rdparty\libwebp\libwebp.vcxproj">
-      <Project>{3c5375b9-04ee-4136-a826-929b32175b32}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\3rdparty\openexr\IlmImf.vcxproj">
-      <Project>{a8104aff-8102-49f8-acd3-0e4a059e559f}</Project>
     </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\3rdparty\zlib\zlib.vcxproj">
       <Project>{b1c6e4ee-cfaf-452b-a6dc-70cc90415519}</Project>
@@ -395,12 +383,6 @@
     </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\modules\core\opencv_core.vcxproj">
       <Project>{10b8265c-d814-3269-9aef-6c50f1815909}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\modules\features2d\opencv_features2d.vcxproj">
-      <Project>{a8696fcd-70aa-31e3-bd18-ac85d2bed14e}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\modules\flann\opencv_flann.vcxproj">
-      <Project>{1618a8f9-ffd8-34bd-b1cd-1c8c4e13a9b6}</Project>
     </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\modules\highgui\opencv_highgui.vcxproj">
       <Project>{8e809e09-d93a-34a4-89dd-2a962dd66f4b}</Project>
@@ -416,9 +398,6 @@
     </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\modules\objdetect\opencv_objdetect.vcxproj">
       <Project>{0b5ce246-1207-32d0-ae3c-2b017d3a5d9b}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\modules\videoio\opencv_videoio.vcxproj">
-      <Project>{7e8dcdc6-dbb6-394e-b1c2-c1cbdc990655}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

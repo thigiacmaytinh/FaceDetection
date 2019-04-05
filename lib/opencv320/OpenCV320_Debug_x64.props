@@ -5,7 +5,7 @@
   <PropertyGroup />
   <ItemDefinitionGroup>
     <Link>
-      <AdditionalDependencies>zlibd.lib;ippicvmt.lib;libjpegd.lib;libwebpd.lib;libpngd.lib;libtiffd.lib;libjasperd.lib;IlmImfd.lib;vfw32.lib;opencv_core320d.lib;opencv_flann320d.lib;opencv_features2d320d.lib;opencv_highgui320d.lib;opencv_imgcodecs320d.lib;opencv_imgproc320d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>zlibd.lib;ippicvmt.lib;libjpegd.lib;libpngd.lib;vfw32.lib;opencv_core320d.lib;opencv_highgui320d.lib;opencv_imgcodecs320d.lib;opencv_imgproc320d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\opencv320\3rdparty\lib\Debug-x64;$(SolutionDir)lib\opencv320\modules\lib\Debug-x64;$(SolutionDir)lib\opencv320\contrib\lib\Debug-x64;$(SolutionDir)lib\opencv320\3rdparty\ippicv\ippicv_win\lib\intel64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <ClCompile>
