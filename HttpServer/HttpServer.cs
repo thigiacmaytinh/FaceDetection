@@ -260,10 +260,10 @@ namespace Bend.Util
                 }
                 else
                 {
-                    bmp = new Bitmap(inputData);
-                    bmp = TGMTimage.CorrectOrientation(bmp);
+                    bmp = new Bitmap(inputData);                    
                 }
 
+                bmp = TGMTimage.CorrectOrientation(bmp);
                 result = faceComp.RecogImage(bmp, cropped);
             }
             catch (Exception ex)
