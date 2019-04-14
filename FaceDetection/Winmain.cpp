@@ -17,7 +17,7 @@
 void OnNewFrame(cv::Mat frame)
 {
 	int count = GetTGMTface()->DetectAndDrawFaces(frame);
-	TGMTdraw::PutText(frame, cv::Point(10, 30), GREEN, "%d face", count);
+	TGMTdraw::PutText(frame, cv::Point(10, 30), count > 0 ? GREEN : RED, "%d face", count);
 	ShowImage(frame, "https://thigiacmaytinh.com - Face detection");
 	cv::waitKey(1);
 }

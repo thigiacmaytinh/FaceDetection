@@ -17,9 +17,6 @@
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTdraw.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMTface.cpp">
-      <Filter>TGMT</Filter>
-    </ClCompile>
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTfile.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
@@ -44,6 +41,7 @@
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTvideo.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\TGMTcpp\src\stdafx.h">
@@ -59,9 +57,6 @@
       <Filter>TGMT</Filter>
     </ClInclude>
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTdraw.h">
-      <Filter>TGMT</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMTface.h">
       <Filter>TGMT</Filter>
     </ClInclude>
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTfile.h">
@@ -88,6 +83,7 @@
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTvideo.h">
       <Filter>TGMT</Filter>
     </ClInclude>
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTface.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="TGMT">

@@ -108,7 +108,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_face320d.lib;opencv_ml320d.lib;opencv_objdetect320d.lib;opencv_videoio320d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_objdetect320d.lib;opencv_videoio320d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -124,7 +124,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_face320d.lib;opencv_ml320d.lib;opencv_objdetect320d.lib;opencv_videoio320d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_objdetect320d.lib;opencv_videoio320d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\jsoncpp\project\vs2015\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -144,7 +144,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opencv_face320.lib;opencv_ml320.lib;opencv_objdetect320.lib;opencv_videoio320.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_objdetect320.lib;opencv_videoio320.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\jsoncpp\project\vs2015\$(Configuration)\;$(SolutionDir)lib\jsoncpp\project\vs2015\compiled_lib\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -164,13 +164,14 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>opencv_face320.lib;opencv_ml320.lib;opencv_objdetect320.lib;opencv_videoio320.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_objdetect320.lib;opencv_videoio320.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)lib\jsoncpp\project\vs2015\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTbrightness.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTcamera.cpp" />
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTface.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTshape.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTvideo.cpp" />
     <ClCompile Include="Winmain.cpp" />
@@ -179,7 +180,6 @@
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTConfig.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTdebugger.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTdraw.cpp" />
-    <ClCompile Include="..\lib\TGMTcpp\src\TGMTface.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTfile.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMThistogram.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTimage.cpp" />
@@ -188,6 +188,7 @@
   <ItemGroup>
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTbrightness.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTcamera.h" />
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTface.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTshape.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTvideo.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\stdafx.h" />
@@ -195,30 +196,17 @@
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTConfig.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTdebugger.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTdraw.h" />
-    <ClInclude Include="..\lib\TGMTcpp\src\TGMTface.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTfile.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMThistogram.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTimage.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTutil.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\lib\opencv320\3rdparty\libjasper\libjasper.vcxproj">
-      <Project>{fc470206-6f71-4925-be63-6db515ef3a44}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\3rdparty\libjpeg\libjpeg.vcxproj">
       <Project>{d27ae347-08bc-4938-b473-6365cab8e3c2}</Project>
     </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\3rdparty\libpng\libpng.vcxproj">
       <Project>{01bee73e-6f42-4714-9ce6-d968ce1f49d6}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\3rdparty\libtiff\libtiff.vcxproj">
-      <Project>{97b29acd-cf80-4ae0-9c6c-b414484480ad}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\3rdparty\libwebp\libwebp.vcxproj">
-      <Project>{3c5375b9-04ee-4136-a826-929b32175b32}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\3rdparty\openexr\IlmImf.vcxproj">
-      <Project>{a8104aff-8102-49f8-acd3-0e4a059e559f}</Project>
     </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\3rdparty\zlib\zlib.vcxproj">
       <Project>{b1c6e4ee-cfaf-452b-a6dc-70cc90415519}</Project>
@@ -228,12 +216,6 @@
     </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\modules\core\opencv_core.vcxproj">
       <Project>{10b8265c-d814-3269-9aef-6c50f1815909}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\modules\features2d\opencv_features2d.vcxproj">
-      <Project>{a8696fcd-70aa-31e3-bd18-ac85d2bed14e}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\opencv320\modules\flann\opencv_flann.vcxproj">
-      <Project>{1618a8f9-ffd8-34bd-b1cd-1c8c4e13a9b6}</Project>
     </ProjectReference>
     <ProjectReference Include="..\lib\opencv320\modules\highgui\opencv_highgui.vcxproj">
       <Project>{8e809e09-d93a-34a4-89dd-2a962dd66f4b}</Project>

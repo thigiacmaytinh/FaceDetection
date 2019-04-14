@@ -198,7 +198,7 @@ void TGMTdraw::PutText(cv::Mat& matInput, cv::Point p, cv::Scalar color, float f
 	if (text == nullptr || text == "")
 		return;
 
-	cv::putText(matInput, text, p, cv::FONT_ITALIC, fontScale, color, 2);
+	cv::putText(matInput, text, p, cv::FONT_HERSHEY_DUPLEX, fontScale, color, 1, CV_AA);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -213,9 +213,11 @@ void TGMTdraw::DrawRotatedRectangle(cv::Mat& matInput, cv::RotatedRect rect, int
 	cv::Scalar clr;
 	if (color == UNDEFINED_COLOR)
 		clr = TGMTcolor::GetRandomColor();
+	else
+		clr = color;
 	for (int j = 0; j < 4; j++)
 	{
-		line(matInput, rectPoints[j], rectPoints[(j + 1) % 4], clr, thickness, 8);
+		cv::line(matInput, rectPoints[j], rectPoints[(j + 1) % 4], clr, thickness, 8);
 	}
 }
 
@@ -276,7 +278,7 @@ void TGMTdraw::DrawCircles(cv::Mat& matInput, std::vector<TGMTshape::Circle> cir
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTdraw::DrawNoticeBox(cv::Mat& matInput, cv::Rect rect, cv::Scalar color, const char* fmt, ...)
+void TGMTdraw::DrawNoticeBox(cv::Mat& matInput, cv::Rect rect, cv::Scalar color, int thickness, const char* fmt, ...)
 {
 	char str[DEBUG_OUT_BUFFER_SIZE];
 	va_list arg_list;
@@ -288,14 +290,15 @@ void TGMTdraw::DrawNoticeBox(cv::Mat& matInput, cv::Rect rect, cv::Scalar color,
 	vsnprintf(str, DEBUG_OUT_BUFFER_SIZE - 1, fmt, arg_list);
 
 
-	cv::rectangle(matInput, rect, color);
+	cv::rectangle(matInput, rect, color, thickness);
 
 	cv::Point tl = rect.tl();
+	tl.y -= 3;
 	if (rect.y < 20)
 	{
 		tl.y += 20;
 	}
-	cv::putText(matInput, str, tl , cv::FONT_ITALIC, 1, color);
+	cv::putText(matInput, str, tl , cv::FONT_HERSHEY_DUPLEX, 1, color, 1, CV_AA);
 	
 
 }
