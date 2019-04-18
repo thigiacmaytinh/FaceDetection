@@ -47,6 +47,9 @@
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTcamera.cpp">
       <Filter>TGMT</Filter>
     </ClCompile>
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTvideo.cpp">
+      <Filter>TGMT</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\lib\TGMTcpp\src\stdafx.h">
@@ -87,6 +90,9 @@
     </ClInclude>
     <ClInclude Include="FaceRecognition.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTcamera.h">
+      <Filter>TGMT</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTvideo.h">
       <Filter>TGMT</Filter>
     </ClInclude>
   </ItemGroup>

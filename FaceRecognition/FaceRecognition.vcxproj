@@ -93,6 +93,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\lib\TGMTcpp\src\TGMTcamera.cpp" />
+    <ClCompile Include="..\lib\TGMTcpp\src\TGMTvideo.cpp" />
     <ClCompile Include="FaceRecognition.cpp" />
     <ClCompile Include="Winmain.cpp" />
     <ClCompile Include="..\lib\TGMTcpp\src\stdafx.cpp" />
@@ -122,6 +123,7 @@
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTimage.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTshape.h" />
     <ClInclude Include="..\lib\TGMTcpp\src\TGMTutil.h" />
+    <ClInclude Include="..\lib\TGMTcpp\src\TGMTvideo.h" />
     <ClInclude Include="FaceRecognition.h" />
   </ItemGroup>
   <ItemGroup>

@@ -11,10 +11,12 @@
 #include <ppl.h>
 #include <windows.h>
 #include "TGMTConfig.h"
-//#include "FaceRecognition.h"
+#include "TGMTvideo.h"
 #include "TGMTface.h"
 #include "TGMTdraw.h"
 #include "TGMTcamera.h"
+
+#define INI "FaceDetection"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -48,7 +50,33 @@ void LoadConfig()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void OnCameraFrame(std::vector<cv::Mat> frames)
+void OnNewVideoFrame(cv::Mat frame)
+{
+	std::vector<cv::Rect> rects;
+	std::string errMsg;
+	std::vector<TGMTface::Person> persons = GetTGMTface()->DetectPersons(frame, rects, errMsg);
+
+	TGMTdraw::DrawRectangles(frame, rects, 1, GREEN);
+
+	for (int j = 0; j < persons.size(); j++)
+	{
+		cv::Point p = rects[j].tl();
+		p.y -= 20;
+		TGMTdraw::PutText(frame, p, GREEN, "%s", persons[j].name.c_str());
+
+		if (persons[j].confident < g_confident)
+		{
+			WriteImageAsync(frame(rects[j]), "facial\\Guest\\%s.png", GetCurrentDateTime(true).c_str());
+		}
+
+	}
+	ShowImage(frame, "https://thigiacmaytinh.com - Face recognition");
+	cv::waitKey(1);
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void OnCameraFrames(std::vector<cv::Mat> frames)
 {
 	if (frames.size() == 0)
 	{
@@ -56,32 +84,13 @@ void OnCameraFrame(std::vector<cv::Mat> frames)
 		return;
 	}
 
-	std::vector<cv::Rect> rects;
-	std::string errMsg;
+	
 	for (int i = 0; i < frames.size(); i++)
 	{
 		cv::Mat frame = frames[i];
-		std::vector<TGMTface::Person> persons = GetTGMTface()->DetectPersons(frame, rects, errMsg);
-
-		TGMTdraw::DrawRectangles(frame, rects, 1, GREEN);
-
-		for (int j = 0; j < persons.size(); j++)
-		{
-			cv::Point p = rects[j].tl();
-			p.y -= 20;
-			TGMTdraw::PutText(frame, p, GREEN, "%s", persons[i].name.c_str());
-
-			if (persons[i].confident < g_confident)
-			{
-				WriteImageAsync(frame(rects[j]), "faces\\%s\\%s.png",   GetCurrentDateTime(true).c_str());
-			}
-		}
 		
-
-		ShowImage(frames[i], "camera_%d", i);
+		OnNewVideoFrame(frame);
 	}
-	cv::waitKey(1);
-	
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,9 +101,31 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	LoadConfig();
 
-	GetTGMTcamera()->OnNewFrames = OnCameraFrame;
-	GetTGMTcamera()->LoadConfig();
-	GetTGMTcamera()->Start();
+	int source = GetTGMTConfig()->ReadValueInt(INI, "source", 1);
+	if (source == 0)//image
+	{
+		std::string imgPath = GetTGMTConfig()->ReadValueString(INI, "image");
+		cv::Mat mat = cv::imread(imgPath);
+		ASSERT(mat.data, "Can not load image");
+
+		int count = GetTGMTface()->DetectAndDrawFaces(mat);
+		ShowImage(mat, "Detected %d faces", count);
+	}
+	else if (source == 1)//camera
+	{
+		GetTGMTcamera()->OnNewFrames = OnCameraFrames;
+		ASSERT(GetTGMTcamera()->LoadConfig(), "Can not load camera");
+
+
+		GetTGMTcamera()->Start();
+	}
+	else // video
+	{
+		GetTGMTvideo()->OnNewFrame = OnNewVideoFrame;
+		GetTGMTvideo()->LoadConfig();
+		GetTGMTvideo()->PlayVideo();
+	}
+
 
 #ifdef _DEBUG
 	getchar();
