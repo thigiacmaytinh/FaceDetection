@@ -11,5 +11,6 @@ public:
 	static cv::Mat AutoLuminance(cv::Mat matInput);
 	static cv::Mat SetBrightness(cv::Mat matInput, double alpha, int beta);
 	static cv::Mat AutoContrast(cv::Mat matInput);
+	static cv::Mat CLAHE(cv::Mat matInput);
 };
 

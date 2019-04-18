@@ -1,3 +1,11 @@
 
 *.db
 /lib/opencv320/apps
+*.obj
+*.lib
+*.pch
+*.ilk
+*.opendb
+*.tlog
+*.pdb
+*.log

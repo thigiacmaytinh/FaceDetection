@@ -283,14 +283,20 @@ std::string TGMTConfig::INIReader::ReadValueString(std::string section, std::str
 	// Use _values.find() here instead of _values.at() to support pre C++11 compilers
 
 	std::string result = default_value;
-	if (_values.count(keyname))
+	if (m_values.count(keyname) && !m_values.find(keyname)->second.empty())
 	{
-		result = _values.find(keyname)->second;
+		result = m_values.find(keyname)->second;
 		m_lastReadSuccess = true;
 	}
 	else
 	{
 		m_lastReadSuccess = false;
+
+		if (m_writeDefaultValueIfNotExist)
+		{
+			GetTGMTConfig()->WriteConfigString(section, key, default_value);
+		}
+		
 #ifdef DEBUG
 		PrintMessageYellow("Missing config key: [%s] %s",section.c_str(),  key.c_str());
 #endif
@@ -298,13 +304,13 @@ std::string TGMTConfig::INIReader::ReadValueString(std::string section, std::str
 	return result;
 }
 
-long TGMTConfig::INIReader::ReadValueInt(std::string section, std::string name, long default_value)
+int TGMTConfig::INIReader::ReadValueInt(std::string section, std::string name, int default_value)
 {
-	std::string valstr = ReadValueString(section, name, "");
+	std::string valstr = ReadValueString(section, name, TGMTutil::FormatString("%d", default_value));
 	char* value = (char*)valstr.c_str();
 	char* end;
 	// This parses "1234" (decimal) and also "0x4D2" (hex)
-	long n = strtol(value, &end, 0);
+	int n = strtol(value, &end, 0);
 	return end > value ? n : default_value;
 }
 
@@ -342,9 +348,9 @@ int TGMTConfig::INIReader::ValueHandler(void* user, char* section, char* name, c
 {
 	INIReader* reader = (INIReader*)user;
 	std::string key = MakeKey(section, name);
-	if (reader->_values[key].size() > 0)
-		reader->_values[key] += "\n";
-	reader->_values[key] += value;
+	if (reader->m_values[key].size() > 0)
+		reader->m_values[key] += "\n";
+	reader->m_values[key] += value;
 	return 1;
 }
 

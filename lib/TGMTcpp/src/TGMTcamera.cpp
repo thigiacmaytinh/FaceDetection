@@ -70,34 +70,6 @@ cv::Mat TGMTcamera::GetImageFromCamera(int cameraID)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTcamera::StartCamera(int cameraID)
-{
-	ASSERT(OnNewFrame, "You must set callback function before use this function");
-
-	StopCamera();
-	mCap = cv::VideoCapture(cameraID);
-	ASSERT(mCap.isOpened(), "Can not read camera %d", cameraID);
-
-	m_isRunning = true;
-	m_threadGrab = std::thread(&TGMTcamera::CameraGrabbed, this);
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-void TGMTcamera::StartCamera(std::string cameraURL)
-{
-	ASSERT(OnNewFrame, "You must set callback function before use this function");
-
-	StopCamera();
-	mCap = cv::VideoCapture(cameraURL);
-	ASSERT(mCap.isOpened(), "Can not read camera %s", cameraURL.c_str());
-
-	m_isRunning = true;
-	m_threadGrab = std::thread(&TGMTcamera::CameraGrabbed, this);
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void TGMTcamera::StopCamera()
 {
 	if (m_isRunning)
@@ -131,28 +103,17 @@ void TGMTcamera::StopCamera()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void TGMTcamera::CameraGrabbed()
-{
-	cv::Mat frame;
-
-	while (mCap.isOpened() && m_isRunning)
-	{
-		mCap.read(frame);
-
-		OnNewFrame(frame);
-	}
-	frame.~Mat();
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
 void TGMTcamera::CaptureFrame(int camID)
 {
 	cv::Mat frame;
 	cv::VideoCapture* cam = m_vcaps[camID];
+
 	while (m_isRunning && cam->isOpened())
 	{
 		cam->read(frame);
+
+		if (!frame.data)
+			continue;
 
 		if (m_frameResizes[camID].area() > 0 && frame.data && frame.cols != m_frameResizes[camID].width && frame.rows != m_frameResizes[camID].height)
 		{
@@ -162,6 +123,7 @@ void TGMTcamera::CaptureFrame(int camID)
 		m_mutex.lock();
 		frame.copyTo(m_frames[camID]);
 		m_mutex.unlock();
+
 	}
 	frame.~Mat();
 }
@@ -187,7 +149,7 @@ void TGMTcamera::StartCameras(std::vector<std::string> camSources)
 {
 	ASSERT(camSources.size() > 0, "Number camera support must bigger than 0");
 	ASSERT(OnNewFrames != nullptr, "You must set callback function before call StartCameras");
-
+	
 
 	//check valid cam
 	for (int i = 0; i < camSources.size(); i++)
@@ -214,6 +176,21 @@ void TGMTcamera::StartCameras(std::vector<std::string> camSources)
 			{
 				PrintError("Camera link load failed: %s", camSources[i].c_str());
 				WriteLog("Camera link load failed: %s", camSources[i].c_str());
+			}
+		}
+
+		if (m_vcaps.size() > 0 && i < m_vcaps.size())
+		{
+
+			if (m_cameraFPS[i] != 0)
+			{
+				m_vcaps[i]->set(CV_CAP_PROP_FPS, m_cameraFPS[i]);
+			}
+
+			if (m_cameraSize[i].area() > 0)
+			{
+				m_vcaps[i]->set(CV_CAP_PROP_FRAME_WIDTH, m_cameraSize[i].width);
+				m_vcaps[i]->set(CV_CAP_PROP_FRAME_HEIGHT, m_cameraSize[i].height);
 			}
 		}
 	}
@@ -245,7 +222,7 @@ void TGMTcamera::Start()
 {
 	if (!m_loadConfigSuccess)
 	{
-		PrintError("Load camera config failed");
+		PrintError("Load camera failed");
 		return;
 	}
 	if (m_camSources.size() == 0)
@@ -256,7 +233,7 @@ void TGMTcamera::Start()
 
 	m_isRunning = true;
 
-	StartCameras(m_camSources);
+	StartCameras(m_camSources);	
 	m_threadUpdate = std::thread(&TGMTcamera::Update, this);
 }
 
@@ -278,6 +255,7 @@ bool TGMTcamera::LoadConfig()
 
 	for (int i = 0; i < numCamera; i++)
 	{
+		//read camera source
 		std::string camKey = TGMTutil::FormatString("camera_%d", i);
 		std::string camSource = GetTGMTConfig()->ReadValueString("TGMTcamera", camKey);
 		if (camSource.empty())
@@ -293,7 +271,10 @@ bool TGMTcamera::LoadConfig()
 			WriteLog("%s is duplicated", camKey.c_str());
 			continue;
 		}
+		m_camSources.push_back(camSource);
 
+
+		//read output size
 		std::string camResizeKey = TGMTutil::FormatString("camera_%d_resize", i);
 		auto strResizeSplit = TGMTutil::SplitString(GetTGMTConfig()->ReadValueString("TGMTcamera", camResizeKey), ',');
 		if (strResizeSplit.size() != 2)
@@ -304,28 +285,45 @@ bool TGMTcamera::LoadConfig()
 		{
 			m_frameResizes.push_back(cv::Size(atoi(strResizeSplit[0].c_str()), atoi(strResizeSplit[1].c_str())));
 		}
-		m_camSources.push_back(camSource);
+		
+
+		//read input size
+		std::string camInputSizeKey = TGMTutil::FormatString("camera_%d_input_size", i);
+		auto strInputSizeSplit = TGMTutil::SplitString(GetTGMTConfig()->ReadValueString("TGMTcamera", camInputSizeKey), ',');
+		if (strInputSizeSplit.size() == 2)
+		{
+			m_cameraSize[i] = cv::Size(atoi(strInputSizeSplit[0].c_str()), atoi(strInputSizeSplit[1].c_str()));
+		}
+
+
+		//read fps
+		std::string camFpsKey = TGMTutil::FormatString("camera_%d_fps", i);
+		int fps = GetTGMTConfig()->ReadValueInt("TGMTcamera", camFpsKey);
+		if (fps > 0 )
+		{
+			m_cameraFPS[i] = fps;
+		}
 	}
 
 
 	if (m_camSources.size() > 0)
 	{
 		m_loadConfigSuccess = true;
-		PrintSuccess("Load %d camera config success", m_camSources.size());
-		WriteLog("Load %d camera config success", m_camSources.size());
+		PrintSuccess("Load %d camera success", m_camSources.size());
+		WriteLog("Load %d camera success", m_camSources.size());
 		return true;
 	}
 	else
 	{
-		PrintError("Can not load any camera config");
-		WriteLog("Can not load any camera config");
+		PrintError("Can not load any camera");
+		WriteLog("Can not load any camera");
 		return false;
 	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int TGMTcamera::GetNumOfCamera()
+int TGMTcamera::GetTotalCamera()
 {
 	return m_camSources.size();
 }
@@ -344,6 +342,7 @@ bool TGMTcamera::IsValidCamera(int camSource)
 
 bool TGMTcamera::IsValidCamera(std::string camLink)
 {
+	ASSERT(TGMTfile::FileExist("opencv_ffmpeg320.dll"), "Missing file opencv_ffmpeg320.dll");
 	cv::VideoCapture cap = cv::VideoCapture(camLink);
 	bool valid = cap.isOpened();
 	cap.release();
@@ -398,4 +397,13 @@ void TGMTcamera::GetStoredFrames(std::vector<cv::Mat>& frames)
 bool TGMTcamera::IsCameraRunning()
 {
 	return m_isRunning;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+bool TGMTcamera::IsCameraOpened(int camID)
+{
+	if (camID >= m_vcaps.size())
+		return false;
+	return m_vcaps[camID]->isOpened();
 }

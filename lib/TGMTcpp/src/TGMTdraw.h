@@ -35,7 +35,7 @@ public:
 	static void DrawCircle(cv::Mat& matInput, TGMTshape::Circle circle, cv::Scalar color = UNDEFINED_COLOR, int thickness = -1);
 	static void DrawCircles(cv::Mat& matInput, std::vector<TGMTshape::Circle> circles, cv::Scalar color = UNDEFINED_COLOR, int thickness = -1);
 
-	static void DrawNoticeBox(cv::Mat& matInput, cv::Rect rect, cv::Scalar color, const char* fmt, ...);
+	static void DrawNoticeBox(cv::Mat& matInput, cv::Rect rect, cv::Scalar color, int thickness, const char* fmt, ...);
 
 	static void DrawSquares(cv::Mat matInput, const std::vector<std::vector<cv::Point> > squares);
 };

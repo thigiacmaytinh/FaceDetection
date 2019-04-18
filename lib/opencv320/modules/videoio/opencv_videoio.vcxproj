@@ -494,9 +494,6 @@
     <ProjectReference Include="..\core\opencv_core.vcxproj">
       <Project>{10b8265c-d814-3269-9aef-6c50f1815909}</Project>
     </ProjectReference>
-    <ProjectReference Include="..\imgcodecs\opencv_imgcodecs.vcxproj">
-      <Project>{d565070c-0587-4adf-815a-29aca1bb11ab}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\imgproc\opencv_imgproc.vcxproj">
       <Project>{b326aaa3-5b95-3ddc-9303-94fdad8439a6}</Project>
     </ProjectReference>

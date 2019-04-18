@@ -11,10 +11,9 @@
 #include <ppl.h>
 #include <windows.h>
 #include "TGMTConfig.h"
-#include "FaceRecognition.h"
+//#include "FaceRecognition.h"
 #include "TGMTface.h"
 #include "TGMTdraw.h"
-#include "TGMTtransform.h"
 #include "TGMTcamera.h"
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
