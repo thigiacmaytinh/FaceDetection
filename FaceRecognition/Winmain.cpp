@@ -22,6 +22,10 @@
 
 int g_confident;
 int g_id = 1;
+int g_skip_n_frame;
+int g_frameCount = 0;
+std::vector<TGMTface::Person> g_persons;
+std::vector<cv::Rect> g_rects;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -44,6 +48,7 @@ void LoadConfig()
 	
 	std::string strConfident = GetTGMTConfig()->ReadValueString(INI_TGMTFACE_SECTION, "guest_confident", "LBPH_confident");
 	g_confident = GetTGMTConfig()->ReadValueInt(INI_TGMTFACE_SECTION, strConfident, -1);
+	g_skip_n_frame = GetTGMTConfig()->ReadValueInt(INI, "skip_n_frame", 10);
 
 	GetTGMTface()->Training();
 }
@@ -52,24 +57,32 @@ void LoadConfig()
 
 void OnNewVideoFrame(cv::Mat frame)
 {
-	std::vector<cv::Rect> rects;
+	
 	std::string errMsg;
-	std::vector<TGMTface::Person> persons = GetTGMTface()->DetectPersons(frame, rects, errMsg);
-
-	TGMTdraw::DrawRectangles(frame, rects, 1, GREEN);
-
-	for (int j = 0; j < persons.size(); j++)
+	if (g_frameCount < 10)
 	{
-		cv::Point p = rects[j].tl();
-		p.y -= 20;
-		TGMTdraw::PutText(frame, p, GREEN, "%s", persons[j].name.c_str());
-
-		if (persons[j].confident < g_confident)
-		{
-			WriteImageAsync(frame(rects[j]), "facial\\Guest\\%s.png", GetCurrentDateTime(true).c_str());
-		}
-
+		g_frameCount++;
 	}
+	else
+	{
+		g_frameCount = 0;
+		g_persons = GetTGMTface()->DetectPersons(frame, g_rects, errMsg);
+	}
+	
+	if (g_persons.size() > 0)
+	{
+		TGMTdraw::DrawRectangles(frame, g_rects, 1, GREEN);
+
+		for (int j = 0; j < g_persons.size(); j++)
+		{
+			cv::Point p = g_rects[j].tl();
+			p.y -= 20;
+			TGMTdraw::PutText(frame, p, GREEN, "%s", g_persons[j].name.c_str());
+
+		}
+	}
+
+	
 	ShowImage(frame, "https://thigiacmaytinh.com - Face recognition");
 	cv::waitKey(1);
 }

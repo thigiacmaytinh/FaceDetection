@@ -36,8 +36,8 @@ void TGMTface::Init(std::string cascadeFace, std::string cascadeEye, FaceModel m
 	{
 		cascadeFace = GetTGMTConfig()->ReadValueString(INI_TGMTFACE_SECTION, "face_cascade_name");
 	}
-	
-	ASSERT(!cascadeFace.empty(), "Face cascade name is null");	
+
+	ASSERT(!cascadeFace.empty(), "Face cascade name is null");
 	mCascadeFace = cv::CascadeClassifier(cascadeFace);
 	ASSERT(!mCascadeFace.empty(), "Can not load face cascade: " + cascadeFace);
 
@@ -52,22 +52,22 @@ void TGMTface::Init(std::string cascadeFace, std::string cascadeEye, FaceModel m
 		mCascadeEyes = cv::CascadeClassifier(cascadeEye);
 		ASSERT(!mCascadeEyes.empty(), "Can not load eye cascade: " + cascadeEye);
 	}
-	
-	
 
-	m_faceSize = GetTGMTConfig()->ReadValueInt(INI_TGMTFACE_SECTION, "face_size");	
+
+
+	m_faceSize = GetTGMTConfig()->ReadValueInt(INI_TGMTFACE_SECTION, "face_size");
 	m_shouldDetectSkin = GetTGMTConfig()->ReadValueBool(INI_TGMTFACE_SECTION, "should_detect_skin");
 	m_minFaceSize = GetTGMTConfig()->ReadValueInt(INI_TGMTFACE_SECTION, "min_face_size");
 	m_maxFaceSize = GetTGMTConfig()->ReadValueInt(INI_TGMTFACE_SECTION, "max_face_size");
 	m_correctFaceAngle = GetTGMTConfig()->ReadValueBool(INI_TGMTFACE_SECTION, "correct_face_angle");
 	m_autoLuminance = GetTGMTConfig()->ReadValueBool(INI_TGMTFACE_SECTION, "auto_luminance");
-	m_autoRetrain = GetTGMTConfig()->ReadValueBool(INI_TGMTFACE_SECTION, "auto_retrain"); 
+	m_autoRetrain = GetTGMTConfig()->ReadValueBool(INI_TGMTFACE_SECTION, "auto_retrain");
 	m_saveFolder = GetTGMTConfig()->ReadValueString(INI_TGMTFACE_SECTION, "save_folder");
 	m_enableEqualizeHist = GetTGMTConfig()->ReadValueBool(INI_TGMTFACE_SECTION, "enable_equalizeHist");
-	m_scaleFactor = GetTGMTConfig()->ReadValueDouble(INI_TGMTFACE_SECTION,"scale_factor", 1.1);
+	m_scaleFactor = GetTGMTConfig()->ReadValueDouble(INI_TGMTFACE_SECTION, "scale_factor", 1.1);
 	m_minNeighbors = GetTGMTConfig()->ReadValueInt(INI_TGMTFACE_SECTION, "min_neighbors", 3);
 	m_expandFaceRatio = GetTGMTConfig()->ReadValueDouble(INI_TGMTFACE_SECTION, "expand_face_ratio", 1.f);
-	
+
 	TGMTfile::CreateDir(m_saveFolder);
 
 	if (model == undefine)
@@ -83,7 +83,7 @@ void TGMTface::Init(std::string cascadeFace, std::string cascadeEye, FaceModel m
 		else
 			ASSERT(false, "Model name not defined");
 	}
-	
+
 	//if (!m_autoRetrain)
 	//{
 	//	TGMTfile::CreateDir(m_saveFolder + "\\new");
@@ -133,8 +133,8 @@ std::vector<cv::Rect> TGMTface::DetectFaces(cv::Mat matInput)
 	{
 		TGMTbrightness::EqualizeHist(matGray);
 	}
-	
-	mCascadeFace.detectMultiScale(matGray, rects, m_scaleFactor, m_minNeighbors, 0 | CV_HAAR_SCALE_IMAGE, cv::Size(m_minFaceSize, m_minFaceSize), cv::Size(m_maxFaceSize, m_maxFaceSize) );
+
+	mCascadeFace.detectMultiScale(matGray, rects, m_scaleFactor, m_minNeighbors, 0 | CV_HAAR_SCALE_IMAGE, cv::Size(m_minFaceSize, m_minFaceSize), cv::Size(m_maxFaceSize, m_maxFaceSize));
 	if (rects.size() == 0)
 		return rects;
 
@@ -217,7 +217,7 @@ std::vector<cv::Rect> TGMTface::DetectFaces(cv::Mat matInput)
 	}
 
 	rects = TGMTshape::ExpandRects(rects, m_expandFaceRatio, m_expandFaceRatio, matInput);
-	
+
 
 	//DEBUG_IMAGE(matInput, "Mat input");
 
@@ -231,10 +231,12 @@ std::vector<cv::Rect> TGMTface::DetectFaces(cv::Mat matInput)
 int TGMTface::DetectAndDrawFaces(cv::Mat& imgInput)
 {
 	std::vector<cv::Rect> rects = DetectFaces(imgInput);
-	
+	TGMTdraw::PutText(imgInput, cv::Point(10, 30), cv::Scalar(0, 0, 255), "Detected %d face", rects.size());
+
+
 	for (int i = 0; i < rects.size(); i++)
 	{
-		cv::rectangle(imgInput, rects[i], GREEN, 2);
+		cv::rectangle(imgInput, rects[i], cv::Scalar(255, 0, 0));
 	}
 
 	return rects.size();
@@ -264,7 +266,7 @@ int TGMTface::DetectAndDrawFaces(std::string imgPath)
 
 std::vector<TGMTface::Person> TGMTface::DetectPersons(cv::Mat matInput, std::string &errMsg, bool faceCropped)
 {
-	
+
 	std::vector<cv::Rect> rects;
 
 	return DetectPersons(matInput, rects, errMsg, faceCropped);
@@ -280,7 +282,7 @@ std::vector<TGMTface::Person> TGMTface::DetectPersons(cv::Mat matInput, std::vec
 
 	if (m_autoLuminance)
 	{
-		cv::normalize(matInput, matInput,0,255, cv::NORM_MINMAX);
+		cv::normalize(matInput, matInput, 0, 255, cv::NORM_MINMAX);
 	}
 	if (faceCropped)
 	{
@@ -299,7 +301,7 @@ std::vector<TGMTface::Person> TGMTface::DetectPersons(cv::Mat matInput, std::vec
 		Person p = PredictPerson(matInput(rects[i]));
 		p.rect = rects[i];
 		result.push_back(p);
-	}	
+	}
 
 	return result;
 }
@@ -319,7 +321,7 @@ TGMTface::Person TGMTface::PredictPerson(cv::Mat faceInput)
 		return Person();
 	}
 	double confident;
-		
+
 	Person p = FindPerson(Predict(faceInput, confident));
 	p.confident = confident;
 	return p;
@@ -383,14 +385,14 @@ bool TGMTface::Training(std::string dir)
 	for (int i = 0; i < subDirs.size(); i++)
 	{
 		std::string currentDir = subDirs[i];
-	
+
 		Person p;
 		p.name = TGMTfile::GetFileName(currentDir);
 		p.label = count++;
 		p.isEmpty = false;
 
 		PrintMessage("%d: %s", p.label + 1, currentDir.c_str());
-		
+
 		std::vector<std::string> imgList = TGMTfile::GetImageFilesInDir(currentDir);
 		for (int j = 0; j < imgList.size(); j++)
 		{
@@ -400,11 +402,11 @@ bool TGMTface::Training(std::string dir)
 			{
 				PrintError("Can not train %s because size smaller than %d", imgList[j].c_str(), m_faceSize);
 				continue;
-			}				
+			}
 			else if (img.cols > m_faceSize || img.rows > m_faceSize)
 			{
 				cv::resize(img, img, cv::Size(m_faceSize, m_faceSize));
-			}				
+			}
 
 			if (img.data)
 			{
@@ -532,9 +534,9 @@ void TGMTface::AddNewImage(cv::Mat matFace, std::string name, bool saveToIndivid
 	int label = FindPerson(name).label;
 	if (label == -1)
 	{
-		label = m_Persons.size();		
-	}	
-	
+		label = m_Persons.size();
+	}
+
 	int bluryFactor = TGMTimage::CalcBlurriness(matFace);
 
 
@@ -572,7 +574,7 @@ void TGMTface::AddNewImage(cv::Mat matFace, std::string name, bool saveToIndivid
 			Training(m_saveFolder);
 		}
 
-	}	
+	}
 	else
 	{
 		WriteImage(matFace, (m_saveFolder + "\\new\\" + name + GetCurrentDateTime(true) + ".jpg").c_str());
@@ -592,15 +594,15 @@ void TGMTface::SetModel(FaceModel model)
 
 	if (model == Eigen)
 	{
-		m_pModel = createEigenFaceRecognizer();		
-	}	
+		m_pModel = createEigenFaceRecognizer();
+	}
 	else if (model == Fisher)
 	{
-		m_pModel = createFisherFaceRecognizer();		
+		m_pModel = createFisherFaceRecognizer();
 	}
 	else if (model == LBPH)
 	{
-		m_pModel = createLBPHFaceRecognizer();		
+		m_pModel = createLBPHFaceRecognizer();
 	}
 	else
 	{
