@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\dct_image_denoising.cpp" />
+    <ClCompile Include="src\grayworld_white_balance.cpp" />
+    <ClCompile Include="src\inpainting.cpp" />
+    <ClCompile Include="src\simple_color_balance.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cvconfig.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\xphoto.hpp" />
+    <ClInclude Include="include\opencv2\xphoto\dct_image_denoising.hpp" />
+    <ClInclude Include="include\opencv2\xphoto\inpainting.hpp" />
+    <ClInclude Include="include\opencv2\xphoto\white_balance.hpp" />
+    <ClInclude Include="src\advanced_types.hpp" />
+    <ClInclude Include="src\annf.hpp" />
+    <ClInclude Include="src\blending.hpp" />
+    <ClInclude Include="src\gcgraph.hpp" />
+    <ClInclude Include="src\norm2.hpp" />
+    <ClInclude Include="src\photomontage.hpp" />
+    <ClInclude Include="src\whs.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{8750B385-9140-448F-99BB-233E082AF528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2\xphoto">
+      <UniqueIdentifier>{DA4DE2B2-8859-4119-ACD2-DEDD5CD65613}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{CCD6B23C-58E5-49C5-805C-75D556D2D3DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{138C8725-9984-4E38-93C3-432FA044E89A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

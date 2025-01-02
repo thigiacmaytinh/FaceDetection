@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\cap.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cap_images.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cap_mjpeg_encoder.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cap_mjpeg_decoder.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cap_cmu.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cap_dshow.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cap_vfw.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cap_ffmpeg.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="opencv_videoio_pch.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\opencv2\videoio.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videoio\videoio.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videoio\cap_ios.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\videoio\videoio_c.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="src\precomp.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cap_dshow.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\cap_ffmpeg_impl.hpp">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\cvconfig.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{CCD6B23C-58E5-49C5-805C-75D556D2D3DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{138C8725-9984-4E38-93C3-432FA044E89A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="opencv_face_pch.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\eigen_faces.cpp" />
+    <ClCompile Include="src\facerec.cpp" />
+    <ClCompile Include="src\fisher_faces.cpp" />
+    <ClCompile Include="src\lbph_faces.cpp" />
+    <ClCompile Include="src\map_predict_collector.cpp" />
+    <ClCompile Include="src\mindist_predict_collector.cpp" />
+    <ClCompile Include="src\predict_collector.cpp" />
+    <ClCompile Include="src\stat_predict_collector.cpp" />
+    <ClCompile Include="src\std_predict_collector.cpp" />
+    <ClCompile Include="src\topn_predict_collector.cpp" />
+    <ClCompile Include="src\vector_predict_collector.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cvconfig.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\face.hpp" />
+    <ClInclude Include="include\opencv2\face\facerec.hpp" />
+    <ClInclude Include="include\opencv2\face\predict_collector.hpp" />
+    <ClInclude Include="src\face_basic.hpp" />
+    <ClInclude Include="src\precomp.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{8750B385-9140-448F-99BB-233E082AF528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2\face">
+      <UniqueIdentifier>{45D1CACE-8BE9-4875-81B6-B0BFFAF58722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{CCD6B23C-58E5-49C5-805C-75D556D2D3DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{138C8725-9984-4E38-93C3-432FA044E89A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

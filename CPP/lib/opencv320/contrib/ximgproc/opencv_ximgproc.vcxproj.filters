@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="opencv_ximgproc_pch.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\adaptive_manifold_filter_n.cpp" />
+    <ClCompile Include="src\disparity_filters.cpp" />
+    <ClCompile Include="src\domain_transform.cpp" />
+    <ClCompile Include="src\dtfilter_cpu.cpp" />
+    <ClCompile Include="src\edgeaware_filters_common.cpp" />
+    <ClCompile Include="src\estimated_covariance.cpp" />
+    <ClCompile Include="src\fast_hough_transform.cpp" />
+    <ClCompile Include="src\fgs_filter.cpp" />
+    <ClCompile Include="src\graphsegmentation.cpp" />
+    <ClCompile Include="src\guided_filter.cpp" />
+    <ClCompile Include="src\joint_bilateral_filter.cpp" />
+    <ClCompile Include="src\l0_smooth.cpp" />
+    <ClCompile Include="src\lsc.cpp" />
+    <ClCompile Include="src\niblack_thresholding.cpp" />
+    <ClCompile Include="src\rolling_guidance_filter.cpp" />
+    <ClCompile Include="src\seeds.cpp" />
+    <ClCompile Include="src\selectivesearchsegmentation.cpp" />
+    <ClCompile Include="src\slic.cpp" />
+    <ClCompile Include="src\sparse_match_interpolators.cpp" />
+    <ClCompile Include="src\structured_edge_detection.cpp" />
+    <ClCompile Include="src\weighted_median_filter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\cvconfig.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\opencv2\opencv_modules.hpp">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\opencv2\ximgproc.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\disparity_filter.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\edge_filter.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\estimated_covariance.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\fast_hough_transform.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\lsc.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\seeds.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\segmentation.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\slic.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\sparse_match_interpolator.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\structured_edge_detection.hpp" />
+    <ClInclude Include="include\opencv2\ximgproc\weighted_median_filter.hpp" />
+    <ClInclude Include="src\advanced_types.hpp" />
+    <ClInclude Include="src\dtfilter_cpu.hpp" />
+    <ClInclude Include="src\dtfilter_cpu.inl.hpp" />
+    <ClInclude Include="src\edgeaware_filters_common.hpp" />
+    <ClInclude Include="src\precomp.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Include\opencv2\ximgproc">
+      <UniqueIdentifier>{72961D5B-4D6A-44A5-B8F2-6BD29568BA55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\opencv2">
+      <UniqueIdentifier>{8750B385-9140-448F-99BB-233E082AF528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{CCD6B23C-58E5-49C5-805C-75D556D2D3DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{138C8725-9984-4E38-93C3-432FA044E89A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
